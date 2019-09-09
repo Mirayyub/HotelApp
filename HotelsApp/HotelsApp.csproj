@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HotelsApp</RootNamespace>
     <AssemblyName>HotelsApp</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,16 +49,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -102,6 +101,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -192,8 +192,172 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Public\bundles\c3.bundle.js" />
+    <Content Include="Public\bundles\chartist.bundle.js" />
+    <Content Include="Public\bundles\datatablescripts.bundle.js" />
+    <Content Include="Public\bundles\flotscripts.bundle.js" />
+    <Content Include="Public\bundles\footable.bundle.js" />
+    <Content Include="Public\bundles\fullcalendarscripts.bundle.js" />
+    <Content Include="Public\bundles\jvectormap.bundle.js" />
+    <Content Include="Public\bundles\knob.bundle.js" />
+    <Content Include="Public\bundles\libscripts.bundle.js" />
+    <Content Include="Public\bundles\markdown.bundle.js" />
+    <Content Include="Public\bundles\morrisscripts.bundle.js" />
+    <Content Include="Public\bundles\summernote.bundle.js" />
+    <Content Include="Public\bundles\vendorscripts.bundle.js" />
+    <Content Include="Public\css\blog.css" />
+    <Content Include="Public\css\demo.css" />
+    <Content Include="Public\css\main.css" />
+    <Content Include="Public\favicon.ico" />
+    <Content Include="Public\images\backgrounds\img-1.jpg" />
+    <Content Include="Public\images\backgrounds\img-4.jpg" />
+    <Content Include="Public\images\blog\blog-page-1.jpg" />
+    <Content Include="Public\images\blog\blog-page-2.jpg" />
+    <Content Include="Public\images\blog\blog-page-4.jpg" />
+    <Content Include="Public\images\brand\icon.svg" />
+    <Content Include="Public\images\brand\icon_black.svg" />
+    <Content Include="Public\images\image-gallery\1.jpg" />
+    <Content Include="Public\images\image-gallery\10.jpg" />
+    <Content Include="Public\images\image-gallery\11.jpg" />
+    <Content Include="Public\images\image-gallery\12.jpg" />
+    <Content Include="Public\images\image-gallery\13.jpg" />
+    <Content Include="Public\images\image-gallery\14.jpg" />
+    <Content Include="Public\images\image-gallery\15.jpg" />
+    <Content Include="Public\images\image-gallery\2.jpg" />
+    <Content Include="Public\images\image-gallery\3.jpg" />
+    <Content Include="Public\images\image-gallery\4.jpg" />
+    <Content Include="Public\images\image-gallery\5.jpg" />
+    <Content Include="Public\images\image-gallery\6.jpg" />
+    <Content Include="Public\images\image-gallery\7.jpg" />
+    <Content Include="Public\images\image-gallery\8.jpg" />
+    <Content Include="Public\images\image-gallery\9.jpg" />
+    <Content Include="Public\images\lg\avatar1.jpg" />
+    <Content Include="Public\images\lg\avatar2.jpg" />
+    <Content Include="Public\images\lg\avatar3.jpg" />
+    <Content Include="Public\images\lg\avatar4.jpg" />
+    <Content Include="Public\images\paper-plane.png" />
+    <Content Include="Public\images\plane.png" />
+    <Content Include="Public\images\prv\splash.png" />
+    <Content Include="Public\images\prv\thumb-1.jpg" />
+    <Content Include="Public\images\prv\thumb-2.jpg" />
+    <Content Include="Public\images\sm\avatar1.jpg" />
+    <Content Include="Public\images\sm\avatar2.jpg" />
+    <Content Include="Public\images\sm\avatar3.jpg" />
+    <Content Include="Public\images\sm\avatar5.jpg" />
+    <Content Include="Public\images\sm\avatar6.jpg" />
+    <Content Include="Public\images\space-ship.png" />
+    <Content Include="Public\images\user.png" />
+    <Content Include="Public\images\xs\avatar1.jpg" />
+    <Content Include="Public\images\xs\avatar10.jpg" />
+    <Content Include="Public\images\xs\avatar2.jpg" />
+    <Content Include="Public\images\xs\avatar3.jpg" />
+    <Content Include="Public\images\xs\avatar4.jpg" />
+    <Content Include="Public\images\xs\avatar5.jpg" />
+    <Content Include="Public\images\xs\avatar6.jpg" />
+    <Content Include="Public\images\xs\avatar7.jpg" />
+    <Content Include="Public\images\xs\avatar8.jpg" />
+    <Content Include="Public\images\xs\avatar9.jpg" />
+    <Content Include="Public\js\demo.js" />
+    <Content Include="Public\js\pages\advanced-form.js" />
+    <Content Include="Public\js\pages\calendar.js" />
+    <Content Include="Public\js\pages\charts\c3.js" />
+    <Content Include="Public\js\pages\charts\chartjs.js" />
+    <Content Include="Public\js\pages\charts\flot.js" />
+    <Content Include="Public\js\pages\charts\jquery-knob.js" />
+    <Content Include="Public\js\pages\charts\morris.js" />
+    <Content Include="Public\js\pages\charts\sparkline.js" />
+    <Content Include="Public\js\pages\form-wizard.js" />
+    <Content Include="Public\js\pages\index.js" />
+    <Content Include="Public\js\pages\sortable-nestable.js" />
+    <Content Include="Public\js\pages\tables\editable-table.js" />
+    <Content Include="Public\js\pages\tables\footable.js" />
+    <Content Include="Public\js\pages\tables\jquery-datatable.js" />
+    <Content Include="Public\js\pages\todo-js.js" />
+    <Content Include="Public\js\pages\widgets.js" />
+    <Content Include="Public\js\theme.js" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Public\vendor\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Public\vendor\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Public\vendor\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Public\vendor\bootstrap-multiselect\bootstrap-multiselect.css" />
+    <Content Include="Public\vendor\bootstrap-multiselect\bootstrap-multiselect.js" />
+    <Content Include="Public\vendor\bootstrap-select\js\bootstrap-select.min.js" />
+    <Content Include="Public\vendor\bootstrap-tagsinput\bootstrap-tagsinput.css" />
+    <Content Include="Public\vendor\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="Public\vendor\chartist-plugin-tooltip\chartist-plugin-tooltip.css" />
+    <Content Include="Public\vendor\chartist\css\chartist.min.css" />
+    <Content Include="Public\vendor\chartist\polar_area_chart.js" />
+    <Content Include="Public\vendor\charts-c3\plugin.css" />
+    <Content Include="Public\vendor\clipboard-js\clipboard.min.js" />
+    <Content Include="Public\vendor\editable-table\mindmup-editabletable.js" />
+    <Content Include="Public\vendor\fontawesome\css\font-awesome.min.css" />
+    <Content Include="Public\vendor\fontawesome\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Public\vendor\fontawesome\js\fontawesome-all.min.html" />
+    <Content Include="Public\vendor\footable-bootstrap\css\footable.bootstrap.min.css" />
+    <Content Include="Public\vendor\footable-bootstrap\css\footable.standalone.min.css" />
+    <Content Include="Public\vendor\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Public\vendor\highlight\css\highlight.min.css" />
+    <Content Include="Public\vendor\highlight\js\highlight.min.js" />
+    <Content Include="Public\vendor\holderjs\holder.min.js" />
+    <Content Include="Public\vendor\input-mask\input-mask.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\buttons\buttons.bootstrap4.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\buttons\buttons.colVis.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\buttons\buttons.flash.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\buttons\buttons.html5.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\buttons\buttons.print.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\buttons\dataTables.buttons.min.js" />
+    <Content Include="Public\vendor\jquery-datatable\dataTables.bootstrap4.min.css" />
+    <Content Include="Public\vendor\jquery-inputmask\jquery.inputmask.bundle.js" />
+    <Content Include="Public\vendor\jquery-knob\jquery.knob.min.js" />
+    <Content Include="Public\vendor\jquery-scrollbar\css\jquery-scrollbar.css" />
+    <Content Include="Public\vendor\jquery-scrollbar\js\jquery-scrollbar.min.js" />
+    <Content Include="Public\vendor\jquery-scrollLock\jquery-scrollLock.min.js" />
+    <Content Include="Public\vendor\jquery-sparkline\js\jquery.sparkline.min.js" />
+    <Content Include="Public\vendor\jquery-steps\jquery.steps.css" />
+    <Content Include="Public\vendor\jquery-steps\jquery.steps.js" />
+    <Content Include="Public\vendor\jquery-validation\jquery.validate.js" />
+    <Content Include="Public\vendor\jvectormap\jquery-jvectormap-2.0.3.css" />
+    <Content Include="Public\vendor\LightboxGallery\mauGallery.min.js" />
+    <Content Include="Public\vendor\LightboxGallery\scripts.js" />
+    <Content Include="Public\vendor\markdown\bootstrap-markdown.min.css" />
+    <Content Include="Public\vendor\morrisjs\morris.css" />
+    <Content Include="Public\vendor\nestable\jquery-nestable.css" />
+    <Content Include="Public\vendor\nestable\jquery.nestable.js" />
+    <Content Include="Public\vendor\nouislider\js\nouislider.min.js" />
+    <Content Include="Public\vendor\parsleyjs\css\parsley.css" />
+    <Content Include="Public\vendor\parsleyjs\js\parsley.min.js" />
+    <Content Include="Public\vendor\select2\select2-spinner.gif" />
+    <Content Include="Public\vendor\select2\select2.css" />
+    <Content Include="Public\vendor\select2\select2.min.js" />
+    <Content Include="Public\vendor\select2\select2.png" />
+    <Content Include="Public\vendor\select2\select2x2.png" />
+    <Content Include="Public\vendor\sticky-kit\sticky-kit.min.js" />
+    <Content Include="Public\vendor\summernote\dist\summernote.css" />
+    <Content Include="Public\vendor\summernote\dist\summernote.js" />
+    <Content Include="Public\vendor\summernote\dist\summernote.min.css" />
+    <Content Include="Public\vendor\textarea-autosize\textarea-autosize.min.js" />
+    <Content Include="Public\vendor\themify-icons\fonts\themify9f24.svg" />
+    <Content Include="Public\vendor\themify-icons\themify-icons.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Public\vendor\fontawesome\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Public\vendor\fontawesome\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Public\vendor\fontawesome\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Public\vendor\fontawesome\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Public\vendor\fontawesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Public\vendor\summernote\dist\font\summernoted41d.eot" />
+    <Content Include="Public\vendor\summernote\dist\font\summernotef534.eot" />
+    <Content Include="Public\vendor\summernote\dist\font\summernotef534.ttf" />
+    <Content Include="Public\vendor\summernote\dist\font\summernotef534.woff" />
+    <Content Include="Public\vendor\themify-icons\fonts\themify9f24.eot" />
+    <Content Include="Public\vendor\themify-icons\fonts\themify9f24.ttf" />
+    <Content Include="Public\vendor\themify-icons\fonts\themify9f24.woff" />
+    <Content Include="Public\vendor\themify-icons\fonts\themifyd41d.eot" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -242,7 +406,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Public\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
