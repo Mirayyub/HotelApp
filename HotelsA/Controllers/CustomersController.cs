@@ -44,11 +44,9 @@ namespace HotelsA.Controllers
         }
 
         // POST: Customers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Fullname,Phonenumber,Passportcode,CreatedDay")] Customer customer)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Fullname,Phonenumber,Passportcode")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -76,11 +74,9 @@ namespace HotelsA.Controllers
         }
 
         // POST: Customers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Fullname,Phonenumber,Passportcode,CreatedDay")] Customer customer)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Fullname,Phonenumber,Passportcode")] Customer customer)
         {
             if (ModelState.IsValid)
             {

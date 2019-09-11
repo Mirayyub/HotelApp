@@ -31,8 +31,6 @@ namespace HotelsA.Models
         public string Passportcode { get; set; }
 
 
-        public DateTime CreatedDay { get; set; }
-
 
         public List<Registration> Registrations { get; set; }
     }

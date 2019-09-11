@@ -128,8 +128,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RoomsController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\HotelsAContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,11 +144,25 @@
     <Compile Include="Migrations\201909111243593_init.Designer.cs">
       <DependentUpon>201909111243593_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909112026578_adduserrol.cs" />
+    <Compile Include="Migrations\201909112026578_adduserrol.Designer.cs">
+      <DependentUpon>201909112026578_adduserrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909112100002_delcustomerdate.cs" />
+    <Compile Include="Migrations\201909112100002_delcustomerdate.Designer.cs">
+      <DependentUpon>201909112100002_delcustomerdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909112201105_registrationnulablerestoranid.cs" />
+    <Compile Include="Migrations\201909112201105_registrationnulablerestoranid.Designer.cs">
+      <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\RestourantMenu.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -338,21 +350,11 @@
     <Content Include="Public\vendor\themify-icons\fonts\themify9f24.ttf" />
     <Content Include="Public\vendor\themify-icons\fonts\themify9f24.woff" />
     <Content Include="Public\vendor\themify-icons\fonts\themifyd41d.eot" />
-    <Content Include="Views\Rooms\Create.cshtml" />
-    <Content Include="Views\Rooms\Delete.cshtml" />
-    <Content Include="Views\Rooms\Details.cshtml" />
-    <Content Include="Views\Rooms\Edit.cshtml" />
-    <Content Include="Views\Rooms\Index.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -366,6 +368,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909111243593_init.resx">
       <DependentUpon>201909111243593_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909112026578_adduserrol.resx">
+      <DependentUpon>201909112026578_adduserrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909112100002_delcustomerdate.resx">
+      <DependentUpon>201909112100002_delcustomerdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909112201105_registrationnulablerestoranid.resx">
+      <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

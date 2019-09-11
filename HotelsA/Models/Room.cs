@@ -19,32 +19,43 @@ namespace HotelsA.Models
             [Required(ErrorMessage = "Otaq nömrəsini yazın.")]
             [Range(1, 500, ErrorMessage = "Otaq nömrəsi 500-dən yuxarı ola bilməz")]
 
-            public int Number { get; set; }
+        [Display(Name = "Otaq")]
+        public int Number { get; set; }
 
             [Required(ErrorMessage = "Otağın qiymətini yazın.")]
             [Range(50, 1000, ErrorMessage = "Otağın bir gecəsi 50 manatdan aşağı, 1000 manatdan yuxarı ola bilməz")]
-            public double Price { get; set; }
+
+        [Display(Name = "Qiymət")]
+        public double Price { get; set; }
 
             [Required(ErrorMessage = "Otağın statusunu qeyd edin.")]
-            public bool Status { get; set; }
+
+        [Display(Name = "Vəziyyəti")]
+        public bool Status { get; set; }
 
 
-            [Required(ErrorMessage = "Çarpayının növünü seçin.")]
+        [Display(Name = "Çarpayı Növü")]
+        [Required(ErrorMessage = "Çarpayının növünü seçin.")]
             public BedType Type { get; set; }
 
             [Required(ErrorMessage = "Otağın böyüklər üçün tutumunu yazın.")]
             [Range(1, 4, ErrorMessage = "4 nəfərdən artıq tutumu olan otaq yoxdur.")]
 
-            public int PersonCapacity { get; set; }
+        [Display(Name = "Otaq Tutumu")]
+        public int PersonCapacity { get; set; }
 
             [Required(ErrorMessage = "Otağın uşaqlar üçün tutumunu yazın.")]
-            [Range(1, 5, ErrorMessage = "5 nəfər uşaqdan artıq tutumu olan otaq yoxdur.")]
-            public int ChildCapacity { get; set; }
+            [Range(1, 4, ErrorMessage = "4 nəfər uşaqdan artıq tutumu olan otaq yoxdur.")]
+
+        [Display(Name = "Otağın uşaq sayı tutumu")]
+        public int ChildCapacity { get; set; }
 
 
             [Required(ErrorMessage = "Otaq haqqında məlumatları yazın.")]
             [MaxLength(500, ErrorMessage = "Otaq haqqında məlumatları yazın.")]
-            public string Desc { get; set; }
+
+        [Display(Name = "Otaq Haqqında")]
+        public string Desc { get; set; }
 
             public List<Registration> Registrations { get; set; }
         }
