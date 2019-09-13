@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201909112201105_registrationnulablerestoranid.Designer.cs">
       <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909131332583_restoraantmenudesc.cs" />
+    <Compile Include="Migrations\201909131332583_restoraantmenudesc.Designer.cs">
+      <DependentUpon>201909131332583_restoraantmenudesc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BedType.cs" />
     <Compile Include="Models\Category.cs" />
@@ -380,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909112201105_registrationnulablerestoranid.resx">
       <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909131332583_restoraantmenudesc.resx">
+      <DependentUpon>201909131332583_restoraantmenudesc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -21,7 +21,7 @@ namespace HotelsA.Models
 
         [Display(Name = "Məhsul haqqında")]
         [MinLength(3, ErrorMessage = "Məhsul haqqında minimum 3 xarakter olmalıdır.")]
-        [MaxLength(50, ErrorMessage = "Məhsul haqqında maximum 50 xarakter olmalıdır.")]
+        [MaxLength(500, ErrorMessage = "Məhsul haqqında maximum 500 xarakter olmalıdır.")]
         public string Desc { get; set; }
 
 

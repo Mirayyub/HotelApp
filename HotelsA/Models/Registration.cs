@@ -14,19 +14,29 @@ namespace HotelsA.Models
         [Required(ErrorMessage = "Qeydiyyata alınma tarixini qeyd edin")]
         public DateTime CheckedIn { get; set; }
 
+
+
         [Display(Name = "Qeydiyyat bitmə tarixi")]
         [Required(ErrorMessage = "Qeydiyyatın bitmə tarixi qeyd edin")]
         public DateTime CheckedOut { get; set; }
 
+
+
         [Display(Name = "Otaq nömrəsi")]
         [Required(ErrorMessage = "Otaq nömrəsini qeyd edin")]
         public int RoomId { get; set; }
-        public Room Room { get; set; }
-        [Required(ErrorMessage = "Müştərini qeyd edin")]
 
+
+
+        public Room Room { get; set; }
+
+
+        [Required(ErrorMessage = "Müştərini qeyd edin")]
         [Display(Name = "Müştəri")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+
 
         public int? RestourantMenuId { get; set; }
 
