@@ -23,8 +23,8 @@ namespace HotelsA.Models
         [Required(ErrorMessage = "Şifrəni qeyd edin")]
         [MaxLength(60, ErrorMessage = "Şifrə maximum 60 xarakter olmalıdır.")]
         public string Password { get; set; }
-
-        public List<UserRol> UserRols { get; set; }
+        public int UserRolId { get; set; }
+        public UserRol UserRol { get; set; }
 
     }
 }

@@ -157,7 +157,10 @@
       <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BedType.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\RestourantMenu.cs" />
     <Compile Include="Models\Room.cs" />
