@@ -28,6 +28,8 @@ namespace HotelsA.Models
 
         [Display(Name = "Pasport Seriyası")]
         [Required(ErrorMessage = "Pasport Seriyasını; yazın.")]
+        [MinLength(6, ErrorMessage = "Pasport Seriyası 6 rəqəmli olmalıdır.")]
+        [MaxLength(15, ErrorMessage = "Pasport Seriyası 15 rəqəmli olmalıdır.")]
         public string Passportcode { get; set; }
 
 

@@ -176,3 +176,4 @@ C:\Users\User\Desktop\Asp.net Final 2\HotelsA\obj\Debug\HotelsA.Migrations.addus
 C:\Users\User\Desktop\Asp.net Final 2\HotelsA\obj\Debug\HotelsA.Migrations.delcustomerdate.resources
 C:\Users\User\Desktop\Asp.net Final 2\HotelsA\obj\Debug\HotelsA.Migrations.registrationnulablerestoranid.resources
 C:\Users\User\Desktop\Asp.net Final 2\HotelsA\obj\Debug\HotelsA.Migrations.restoraantmenudesc.resources
+C:\Users\User\Desktop\Asp.net Final 2\HotelsA\obj\Debug\HotelsA.Migrations.updateCustomermodel.resources
