@@ -24,6 +24,6 @@ namespace HotelsA.Data
         public DbSet<Food> Foods { get; set; }
         public DbSet<RestourantOrder> RestourantOrders { get; set; }
 
-
+        public System.Data.Entity.DbSet<HotelsA.Models.BedType> BedTypes { get; set; }
     }
 }

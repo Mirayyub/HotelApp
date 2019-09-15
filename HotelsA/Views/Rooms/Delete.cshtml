@@ -1,0 +1,80 @@
+﻿@model HotelsA.Models.Room
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal page">
+        <dt>
+            @Html.DisplayNameFor(model => model.BedType.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BedType.TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChildCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChildCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
