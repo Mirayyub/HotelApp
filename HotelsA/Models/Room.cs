@@ -60,11 +60,14 @@ namespace HotelsA.Models
         public string Desc { get; set; }
 
         [Required(ErrorMessage = "Çarpayının növünü seçin.")]
+        [Display(Name = "Çarpayı Növü")]
         public int BedTypeId { get; set; }
 
         [Display(Name = "Çarpayı Növü")]
         public BedType BedType { get; set; }
 
+
+        
 
         public List<BookingDetail> BookingDetails { get; set; }
 

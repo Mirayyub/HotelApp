@@ -13,12 +13,12 @@ namespace HotelsA.Controllers
 {
     public class RoomsController : Controller
     {
-        private HotelsAContext db = new HotelsAContext();
+        private HotelsAContext _context = new HotelsAContext();
 
         // GET: Rooms
         public ActionResult Index()
         {
-            var rooms = db.Rooms.Include(r => r.BedType);
+            var rooms = _context.Rooms.Include(r => r.BedType);
             return View(rooms.ToList());
         }
 
@@ -29,7 +29,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = _context.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -40,23 +40,25 @@ namespace HotelsA.Controllers
         // GET: Rooms/Create
         public ActionResult Create()
         {
-            ViewBag.BedTypeId = new SelectList(db.BedTypes, "Id", "TypeName");
+            ViewBag.BedTypeId = new SelectList(_context.BedTypes, "Id", "TypeName");
             return View();
         }
 
         // POST: Rooms/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Number,Price,Status,PersonCapacity,ChildCapacity,Desc,BedTypeId")] Room room)
         {
             if (ModelState.IsValid)
             {
-                db.Rooms.Add(room);
-                db.SaveChanges();
+                _context.Rooms.Add(room);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BedTypeId = new SelectList(db.BedTypes, "Id", "TypeName", room.BedTypeId);
+            ViewBag.BedTypeId = new SelectList(_context.BedTypes, "Id", "TypeName", room.BedTypeId);
             return View(room);
         }
 
@@ -67,27 +69,29 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = _context.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BedTypeId = new SelectList(db.BedTypes, "Id", "TypeName", room.BedTypeId);
+            ViewBag.BedTypeId = new SelectList(_context.BedTypes, "Id", "TypeName", room.BedTypeId);
             return View(room);
         }
 
         // POST: Rooms/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Number,Price,Status,PersonCapacity,ChildCapacity,Desc,BedTypeId")] Room room)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(room).State = EntityState.Modified;
-                db.SaveChanges();
+                _context.Entry(room).State = EntityState.Modified;
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BedTypeId = new SelectList(db.BedTypes, "Id", "TypeName", room.BedTypeId);
+            ViewBag.BedTypeId = new SelectList(_context.BedTypes, "Id", "TypeName", room.BedTypeId);
             return View(room);
         }
 
@@ -98,7 +102,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Room room = db.Rooms.Find(id);
+            Room room = _context.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -111,9 +115,9 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Room room = db.Rooms.Find(id);
-            db.Rooms.Remove(room);
-            db.SaveChanges();
+            Room room = _context.Rooms.Find(id);
+            _context.Rooms.Remove(room);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -121,7 +125,7 @@ namespace HotelsA.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _context.Dispose();
             }
             base.Dispose(disposing);
         }

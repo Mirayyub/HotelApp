@@ -4,66 +4,80 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="page">
+    <p>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table page">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BedType.TypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Number)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonCapacity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ChildCapacity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Desc)
-        </th>
-        <th></th>
-    </tr>
+        <a href="@Url.Action("create", "rooms")" class="btn btn-primary">Otaq əlavə et</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BedType.TypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChildCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BedType.TypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PersonCapacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChildCapacity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Desc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BedType.TypeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonCapacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChildCapacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desc)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+                    @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-mini btn-info fas fa-info-circle bigger-10" })
+                    <a onclick="return confirm('Are you sure to delete Room No: @item.Number?')" href="@Url.Action("delete", new { id=item.Id})" class="btn btn-danger">Delete</a>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
 
-</table>
+           new { onclick = "return confirm('Are sure wants to delete?');" })
+
+
+                </td>
+
+                <div class="delete-section">
+                    <a class="delete-link" href="@Url.Action("Delete", new {id = item.Id})">Delete</a>
+                    <div class="btn btn-primary delete-confirm" style="display:none" data-delete-id="@item.Id">Confirm Delete</div>
+                </div>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

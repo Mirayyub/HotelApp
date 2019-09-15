@@ -4,12 +4,12 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Room</h4>
+
+<div class="page">
+    <h4>Otaq Haqqında</h4>
     <hr />
-    <dl class="dl-horizontal page">
+    <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.BedType.TypeName)
         </dt>
@@ -69,6 +69,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    
+    @Html.ActionLink("Geriyə qayıt", "Index")
 </p>
