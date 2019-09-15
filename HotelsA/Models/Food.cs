@@ -21,10 +21,9 @@ namespace HotelsA.Models
 
         [Display(Name = "Qiymət")]
         [Required(ErrorMessage = "Qiyməti daxil edin")]
-        [MaxLength(50, ErrorMessage = "Qiymət maximum 50 xarakter olmalıdır")]
-        [MinLength(1, ErrorMessage = "Qiymət minumum 1 xarakter olmalıdır")]
         [Column(TypeName = "money")]
-        public decimal Salary { get; set; }
+        public decimal Price { get; set; }
+
 
 
 
@@ -38,5 +37,7 @@ namespace HotelsA.Models
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
+
+        public List<RestourantOrder> RestourantOrders { get; set; }
     }
 }

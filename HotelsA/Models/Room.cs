@@ -9,8 +9,8 @@ namespace HotelsA.Models
 {
     public class Room
     {
-        
-        
+
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Otaq nömrəsini yazın.")]
@@ -59,16 +59,16 @@ namespace HotelsA.Models
         [Display(Name = "Otaq Haqqında")]
         public string Desc { get; set; }
 
-
-
-
-        [Display(Name = "Çarpayı Növü")]
         [Required(ErrorMessage = "Çarpayının növünü seçin.")]
         public int BedTypeId { get; set; }
 
+        [Display(Name = "Çarpayı Növü")]
         public BedType BedType { get; set; }
 
-        public List<Registration> Registrations { get; set; }
+
+        public List<BookingDetail> BookingDetails { get; set; }
+
+        public List<RestourantOrder> RestourantOrders { get; set; }
 
 
     }

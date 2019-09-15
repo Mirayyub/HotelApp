@@ -3,47 +3,46 @@
 @{
     ViewBag.Title = "Delete";
 }
-    <div class="page col-md-4">
-        <h2>Müştərini Silməyə Əminsiz</h2>
-        <hr />
-        <div>
-            
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Fullname)
-                </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Fullname)
-                </dd>
+<h2>Delete</h2>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Phonenumber)
-                </dt>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fullname)
+        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Phonenumber)
-                </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Fullname)
+        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Passportcode)
-                </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phonenumber)
+        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Passportcode)
-                </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Phonenumber)
+        </dd>
 
-            </dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Passportcode)
+        </dt>
 
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+        <dd>
+            @Html.DisplayFor(model => model.Passportcode)
+        </dd>
 
-                <div class="form-actions">
-                    <input type="submit" value="Delete" class="btn btn-danger" /> 
-                    
-                </div>
-                <div class="mt-3">@Html.ActionLink("Geriyə qayıt", "index")</div>
-            }
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
         </div>
-    </div>
+    }
+</div>

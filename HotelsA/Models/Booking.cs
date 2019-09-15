@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HotelsA.Models
 {
-    public class Registration
+    public class Booking
     {
         public int Id { get; set; }
 
@@ -15,32 +15,22 @@ namespace HotelsA.Models
         public DateTime CheckedIn { get; set; }
 
 
-
-        [Display(Name = "Qeydiyyat bitmə tarixi")]
+        [Display(Name = "Qeydiyyatın bitmə tarixi")]
         [Required(ErrorMessage = "Qeydiyyatın bitmə tarixi qeyd edin")]
         public DateTime CheckedOut { get; set; }
 
-
-
-        [Display(Name = "Otaq nömrəsi")]
-        [Required(ErrorMessage = "Otaq nömrəsini qeyd edin")]
-        public int RoomId { get; set; }
-
-
-
-        public Room Room { get; set; }
-
-
         [Required(ErrorMessage = "Müştərini qeyd edin")]
-        [Display(Name = "Müştəri")]
         public int CustomerId { get; set; }
+
+        [Display(Name = "Müştəri")]
         public Customer Customer { get; set; }
 
 
 
-        public int? RestourantMenuId { get; set; }
+        public int UserId { get; set; }
 
-        public RestourantMenu RestourantMenu { get; set; }
+        public User User { get; set; }
 
+        public List<BookingDetail> BookingDetails { get; set; }
     }
 }

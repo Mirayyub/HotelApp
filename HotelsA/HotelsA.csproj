@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44375</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -132,45 +132,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909111203415_Customer+Room+Registrationmodels.cs" />
-    <Compile Include="Migrations\201909111203415_Customer+Room+Registrationmodels.designer.cs">
-      <DependentUpon>201909111203415_Customer+Room+Registrationmodels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909111209420_Customer+Room+Registrationmodel+data.cs" />
-    <Compile Include="Migrations\201909111209420_Customer+Room+Registrationmodel+data.designer.cs">
-      <DependentUpon>201909111209420_Customer+Room+Registrationmodel+data.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201909111243593_init.cs" />
     <Compile Include="Migrations\201909111243593_init.Designer.cs">
       <DependentUpon>201909111243593_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909112026578_adduserrol.cs" />
-    <Compile Include="Migrations\201909112026578_adduserrol.Designer.cs">
-      <DependentUpon>201909112026578_adduserrol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909112100002_delcustomerdate.cs" />
-    <Compile Include="Migrations\201909112100002_delcustomerdate.Designer.cs">
-      <DependentUpon>201909112100002_delcustomerdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909112201105_registrationnulablerestoranid.cs" />
-    <Compile Include="Migrations\201909112201105_registrationnulablerestoranid.Designer.cs">
-      <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909131332583_restoraantmenudesc.cs" />
-    <Compile Include="Migrations\201909131332583_restoraantmenudesc.Designer.cs">
-      <DependentUpon>201909131332583_restoraantmenudesc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201909131345445_updateCustomermodel.cs" />
-    <Compile Include="Migrations\201909131345445_updateCustomermodel.Designer.cs">
-      <DependentUpon>201909131345445_updateCustomermodel.cs</DependentUpon>
+    <Compile Include="Migrations\201909151403106_restuorantorder+booking+bookingdetailmodelsareadd.cs" />
+    <Compile Include="Migrations\201909151403106_restuorantorder+booking+bookingdetailmodelsareadd.Designer.cs">
+      <DependentUpon>201909151403106_restuorantorder+booking+bookingdetailmodelsareadd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BedType.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\BookingDetail.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Food.cs" />
-    <Compile Include="Models\Registration.cs" />
-    <Compile Include="Models\RestourantMenu.cs" />
+    <Compile Include="Models\RestourantOrder.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRol.cs" />
@@ -371,29 +348,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909111203415_Customer+Room+Registrationmodels.resx">
-      <DependentUpon>201909111203415_Customer+Room+Registrationmodels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909111209420_Customer+Room+Registrationmodel+data.resx">
-      <DependentUpon>201909111209420_Customer+Room+Registrationmodel+data.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909111243593_init.resx">
       <DependentUpon>201909111243593_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909112026578_adduserrol.resx">
-      <DependentUpon>201909112026578_adduserrol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909112100002_delcustomerdate.resx">
-      <DependentUpon>201909112100002_delcustomerdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909112201105_registrationnulablerestoranid.resx">
-      <DependentUpon>201909112201105_registrationnulablerestoranid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909131332583_restoraantmenudesc.resx">
-      <DependentUpon>201909131332583_restoraantmenudesc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909131345445_updateCustomermodel.resx">
-      <DependentUpon>201909131345445_updateCustomermodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909151403106_restuorantorder+booking+bookingdetailmodelsareadd.resx">
+      <DependentUpon>201909151403106_restuorantorder+booking+bookingdetailmodelsareadd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
