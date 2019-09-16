@@ -131,6 +131,7 @@
     <Compile Include="Controllers\FoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRolsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\HotelsAContext.cs" />
@@ -141,13 +142,17 @@
     <Compile Include="Migrations\201909111243593_init.Designer.cs">
       <DependentUpon>201909111243593_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909152140255_food.cs" />
-    <Compile Include="Migrations\201909152140255_food.Designer.cs">
-      <DependentUpon>201909152140255_food.cs</DependentUpon>
+    <Compile Include="Migrations\201909160059137_updateroommodel.cs" />
+    <Compile Include="Migrations\201909160059137_updateroommodel.Designer.cs">
+      <DependentUpon>201909160059137_updateroommodel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909152212315_room.cs" />
-    <Compile Include="Migrations\201909152212315_room.Designer.cs">
-      <DependentUpon>201909152212315_room.cs</DependentUpon>
+    <Compile Include="Migrations\201909160110447_roommode.cs" />
+    <Compile Include="Migrations\201909160110447_roommode.Designer.cs">
+      <DependentUpon>201909160110447_roommode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909160203312_deletetokenfromus.cs" />
+    <Compile Include="Migrations\201909160203312_deletetokenfromus.Designer.cs">
+      <DependentUpon>201909160203312_deletetokenfromus.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BedType.cs" />
@@ -378,6 +383,7 @@
     <Content Include="Views\Foods\Details.cshtml" />
     <Content Include="Views\Foods\Edit.cshtml" />
     <Content Include="Views\Foods\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -386,11 +392,14 @@
     <EmbeddedResource Include="Migrations\201909111243593_init.resx">
       <DependentUpon>201909111243593_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909152140255_food.resx">
-      <DependentUpon>201909152140255_food.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909160059137_updateroommodel.resx">
+      <DependentUpon>201909160059137_updateroommodel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201909152212315_room.resx">
-      <DependentUpon>201909152212315_room.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201909160110447_roommode.resx">
+      <DependentUpon>201909160110447_roommode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909160203312_deletetokenfromus.resx">
+      <DependentUpon>201909160203312_deletetokenfromus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

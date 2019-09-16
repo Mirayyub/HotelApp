@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -24,7 +25,13 @@ namespace HotelsA.Models
 
         [Display(Name = "Müştəri")]
         public Customer Customer { get; set; }
+        [Required]
+        [Column(TypeName = "money")]
+        public decimal Price { get; set; }
+        public int RoomId { get; set; }
 
+       
+        public Room Room { get; set; }
 
 
         public int UserId { get; set; }

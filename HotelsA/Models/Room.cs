@@ -42,7 +42,7 @@ namespace HotelsA.Models
         [Display(Name = "Otaq Tutumu")]
         public int PersonCapacity { get; set; }
 
-
+        public bool? IsDeleted { get; set; }
 
 
         [Required(ErrorMessage = "Otağın uşaqlar üçün tutumunu yazın.")]
@@ -69,7 +69,7 @@ namespace HotelsA.Models
 
         
 
-        public List<BookingDetail> BookingDetails { get; set; }
+        public List<Booking> Bookings { get; set; }
 
         public List<RestourantOrder> RestourantOrders { get; set; }
 

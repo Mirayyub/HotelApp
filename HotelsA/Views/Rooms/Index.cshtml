@@ -63,17 +63,12 @@
                     @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
                     @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-mini btn-info fas fa-info-circle bigger-10" })
                     <a onclick="return confirm('Are you sure to delete Room No: @item.Number?')" href="@Url.Action("delete", new { id=item.Id})" class="btn btn-danger">Delete</a>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id },
-
-           new { onclick = "return confirm('Are sure wants to delete?');" })
+                    
 
 
                 </td>
 
-                <div class="delete-section">
-                    <a class="delete-link" href="@Url.Action("Delete", new {id = item.Id})">Delete</a>
-                    <div class="btn btn-primary delete-confirm" style="display:none" data-delete-id="@item.Id">Confirm Delete</div>
-                </div>
+                
             </tr>
         }
 

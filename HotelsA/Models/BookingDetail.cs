@@ -25,9 +25,6 @@ namespace HotelsA.Models
         public Booking Booking { get; set; }
 
 
-        public int RoomId { get; set; }
-
-
-        public Room Room { get; set; }
+        
     }
 }

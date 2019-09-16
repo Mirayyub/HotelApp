@@ -29,7 +29,6 @@ namespace HotelsA.Models
 
 
 
-
         [Display(Name = "Şifrə")]
         [Required(ErrorMessage = "Şifrəni qeyd edin")]
         [MaxLength(60, ErrorMessage = "Şifrə maximum 60 xarakter olmalıdır.")]
