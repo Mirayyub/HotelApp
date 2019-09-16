@@ -39,12 +39,12 @@
                             <form class="form-auth-small" method="post">
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.UserName)
-                                    @Html.TextBoxFor(m => m.UserName, null, new { @class = "form-control", @placeholder = "username" })
+                                    @Html.TextBoxFor(m => m.UserName, null, new { @class = "form-control", @placeholder = "İstifadəçi adı" })
                                     @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Password)
-                                    @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control", @type = "password" })
+                                    @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control", @type = "password",@placeholder = "Şifrə" })
                                     @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group clearfix">
@@ -54,9 +54,7 @@
                                     </label>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Daxil ol</button>
-                                <div class="bottom">
-                                    <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="auth-forgot-password.html">Şifrəni unutdum</a></span>
-                                </div>
+                                
                             </form>
                         </div>
                     </div>

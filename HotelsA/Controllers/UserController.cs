@@ -38,7 +38,7 @@ namespace HotelsA.Controllers
             if (ModelState.IsValid)
             {
 
-                //Find email from db
+                //Find username from db
                 User user = _context.Users.FirstOrDefault(u => u.UserName == login.UserName);
                 if (user != null)
                 {

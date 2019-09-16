@@ -351,3 +351,4 @@ C:\Users\User\Desktop\ASP.net Final 5\HotelsA\obj\Debug\HotelsA.pdb
 C:\Users\User\Desktop\ASP.net Final 5\HotelsA\obj\Debug\HotelsA.Migrations.updateroommodel.resources
 C:\Users\User\Desktop\ASP.net Final 5\HotelsA\obj\Debug\HotelsA.Migrations.roommode.resources
 C:\Users\User\Desktop\ASP.net Final 5\HotelsA\obj\Debug\HotelsA.Migrations.deletetokenfromus.resources
+C:\Users\User\Desktop\ASP.net Final 5\HotelsA\obj\Debug\HotelsA.Migrations.update.resources

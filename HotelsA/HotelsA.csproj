@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201909160203312_deletetokenfromus.Designer.cs">
       <DependentUpon>201909160203312_deletetokenfromus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909161331209_update.cs" />
+    <Compile Include="Migrations\201909161331209_update.Designer.cs">
+      <DependentUpon>201909161331209_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BedType.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -397,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909160203312_deletetokenfromus.resx">
       <DependentUpon>201909160203312_deletetokenfromus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909161331209_update.resx">
+      <DependentUpon>201909161331209_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

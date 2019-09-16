@@ -14,12 +14,12 @@ namespace HotelsA.Controllers
 {
     public class CustomersController : Controller
     {
-        private HotelsAContext db = new HotelsAContext();
+        private HotelsAContext _context = new HotelsAContext();
 
         // GET: Customers
         public async Task<ActionResult> Index()
         {
-            return View(await db.Customers.ToListAsync());
+            return View(await _context.Customers.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -29,7 +29,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = await db.Customers.FindAsync(id);
+            Customer customer = await _context.Customers.FindAsync(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -50,8 +50,8 @@ namespace HotelsA.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                await db.SaveChangesAsync();
+                _context.Customers.Add(customer);
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +65,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = await db.Customers.FindAsync(id);
+            Customer customer = await _context.Customers.FindAsync(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -80,8 +80,8 @@ namespace HotelsA.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                _context.Entry(customer).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             return View(customer);
@@ -94,7 +94,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = await db.Customers.FindAsync(id);
+            Customer customer = await _context.Customers.FindAsync(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -107,9 +107,9 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Customer customer = await db.Customers.FindAsync(id);
-            db.Customers.Remove(customer);
-            await db.SaveChangesAsync();
+            Customer customer = await _context.Customers.FindAsync(id);
+            _context.Customers.Remove(customer);
+            await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

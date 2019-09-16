@@ -13,7 +13,7 @@ namespace HotelsA.Controllers
 {
     public class UsersController : Controller
     {
-        private HotelsAContext db = new HotelsAContext();
+        private HotelsAContext _context = new HotelsAContext();
 
         // GET: Users
         public ActionResult Index()
@@ -22,7 +22,7 @@ namespace HotelsA.Controllers
             {
                 return RedirectToAction("index", "user");
             }
-            var users = db.Users.Include(u => u.UserRol);
+            var users = _context.Users.Include(u => u.UserRol);
             return View(users.ToList());
         }
 
@@ -37,7 +37,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = _context.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace HotelsA.Controllers
             {
                 return RedirectToAction("index", "user");
             }
-            ViewBag.UserRolId = new SelectList(db.UserRols, "Id", "UserType");
+            ViewBag.UserRolId = new SelectList(_context.UserRols, "Id", "UserType");
             return View();
         }
 
@@ -68,12 +68,12 @@ namespace HotelsA.Controllers
             }
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
+                _context.Users.Add(user);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserRolId = new SelectList(db.UserRols, "Id", "UserType", user.UserRolId);
+            ViewBag.UserRolId = new SelectList(_context.UserRols, "Id", "UserType", user.UserRolId);
             return View(user);
         }
 
@@ -88,12 +88,12 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = _context.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.UserRolId = new SelectList(db.UserRols, "Id", "UserType", user.UserRolId);
+            ViewBag.UserRolId = new SelectList(_context.UserRols, "Id", "UserType", user.UserRolId);
             return View(user);
         }
 
@@ -108,11 +108,11 @@ namespace HotelsA.Controllers
             }
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
+                _context.Entry(user).State = EntityState.Modified;
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserRolId = new SelectList(db.UserRols, "Id", "UserType", user.UserRolId);
+            ViewBag.UserRolId = new SelectList(_context.UserRols, "Id", "UserType", user.UserRolId);
             return View(user);
         }
 
@@ -128,7 +128,7 @@ namespace HotelsA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = _context.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -141,9 +141,9 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
+            User user = _context.Users.Find(id);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
