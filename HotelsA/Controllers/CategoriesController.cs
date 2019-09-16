@@ -18,12 +18,18 @@ namespace HotelsA.Controllers
         // GET: Categories
         public ActionResult Index()
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
+
             return View(_context.Categories.ToList());
         }
 
         // GET: Categories/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -47,6 +53,7 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,CategoryName")] Category category)
         {
+           
             if (ModelState.IsValid)
             {
                 _context.Categories.Add(category);
@@ -60,6 +67,7 @@ namespace HotelsA.Controllers
         // GET: Categories/Edit/5
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -77,6 +85,7 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,CategoryName")] Category category)
         {
+            
             if (ModelState.IsValid)
             {
                 _context.Entry(category).State = EntityState.Modified;
@@ -89,6 +98,7 @@ namespace HotelsA.Controllers
         // GET: Categories/Delete/5
         public ActionResult Delete(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -106,19 +116,13 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            
             Category category = _context.Categories.Find(id);
             _context.Categories.Remove(category);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _context.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

@@ -45,8 +45,6 @@ namespace HotelsA.Controllers
         }
 
         // POST: Rooms/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Number,Price,Status,PersonCapacity,ChildCapacity,Desc,BedTypeId")] Room room)
@@ -79,8 +77,6 @@ namespace HotelsA.Controllers
         }
 
         // POST: Rooms/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Number,Price,Status,PersonCapacity,ChildCapacity,Desc,BedTypeId")] Room room)
@@ -98,6 +94,10 @@ namespace HotelsA.Controllers
         // GET: Rooms/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -115,19 +115,16 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             Room room = _context.Rooms.Find(id);
             _context.Rooms.Remove(room);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _context.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

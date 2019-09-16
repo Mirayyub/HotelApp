@@ -18,6 +18,10 @@ namespace HotelsA.Controllers
         // GET: Users
         public ActionResult Index()
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             var users = db.Users.Include(u => u.UserRol);
             return View(users.ToList());
         }
@@ -25,6 +29,10 @@ namespace HotelsA.Controllers
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,18 +47,25 @@ namespace HotelsA.Controllers
 
         // GET: Users/Create
         public ActionResult Create()
+
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             ViewBag.UserRolId = new SelectList(db.UserRols, "Id", "UserType");
             return View();
         }
 
         // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,FullName,UserName,Password,UserRolId")] User user)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
@@ -65,6 +80,10 @@ namespace HotelsA.Controllers
         // GET: Users/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -79,12 +98,14 @@ namespace HotelsA.Controllers
         }
 
         // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FullName,UserName,Password,UserRolId")] User user)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
@@ -96,8 +117,13 @@ namespace HotelsA.Controllers
         }
 
         // GET: Users/Delete/5
+        
         public ActionResult Delete(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -110,7 +136,7 @@ namespace HotelsA.Controllers
             return View(user);
         }
 
-        // POST: Users/Delete/5
+        // POST: Users/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -121,13 +147,6 @@ namespace HotelsA.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+       
     }
 }

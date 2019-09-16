@@ -40,7 +40,7 @@
 
                     @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
                     @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-mini btn-info fas fa-info-circle bigger-10" })
-                    @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class = "btn btn-mini btn-danger far fa-trash-alt icon-edit bigger-10" })
+                    <a onclick="return confirm('Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
 
                 </td>
 

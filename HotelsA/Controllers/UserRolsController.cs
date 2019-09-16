@@ -18,12 +18,20 @@ namespace HotelsA.Controllers
         // GET: UserRols
         public ActionResult Index()
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             return View(_context.UserRols.ToList());
         }
 
         // GET: UserRols/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +47,10 @@ namespace HotelsA.Controllers
         // GET: UserRols/Create
         public ActionResult Create()
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             return View();
         }
 
@@ -47,6 +59,10 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,UserType")] UserRol userRol)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (ModelState.IsValid)
             {
                 _context.UserRols.Add(userRol);
@@ -60,6 +76,10 @@ namespace HotelsA.Controllers
         // GET: UserRols/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -89,6 +109,10 @@ namespace HotelsA.Controllers
         // GET: UserRols/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -106,19 +130,16 @@ namespace HotelsA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (Session["UserLogin"] == null)
+            {
+                return RedirectToAction("index", "user");
+            }
             UserRol userRol = _context.UserRols.Find(id);
             _context.UserRols.Remove(userRol);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _context.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }
