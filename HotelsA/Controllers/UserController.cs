@@ -39,10 +39,10 @@ namespace HotelsA.Controllers
             {
 
                 //Find username from db
-                User user = _context.Users.FirstOrDefault(u => u.UserName == login.UserName);
+                User user = _context.Users.FirstOrDefault(u => u.UserName.ToLower() == login.UserName.ToLower());
                 if (user != null)
                 {
-                    if (user.Password == login.Password)
+                    if (user.Password.ToLower() == login.Password.ToLower())
                     {
                         //Create user login session
                         Session["UserLogin"] = true;

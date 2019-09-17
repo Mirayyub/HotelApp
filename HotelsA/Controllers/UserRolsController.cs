@@ -25,24 +25,8 @@ namespace HotelsA.Controllers
             return View(_context.UserRols.ToList());
         }
 
-        // GET: UserRols/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (Session["UserLogin"] == null)
-            {
-                return RedirectToAction("index", "user");
-            }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserRol userRol = _context.UserRols.Find(id);
-            if (userRol == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userRol);
-        }
+       
+        
 
         // GET: UserRols/Create
         public ActionResult Create()
@@ -73,7 +57,7 @@ namespace HotelsA.Controllers
             return View(userRol);
         }
 
-        // GET: UserRols/Edit/5
+        // GET: UserRols/Edit/
         public ActionResult Edit(int? id)
         {
             if (Session["UserLogin"] == null)
@@ -92,7 +76,7 @@ namespace HotelsA.Controllers
             return View(userRol);
         }
 
-        // POST: UserRols/Edit/5
+        // POST: UserRols/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,UserType")] UserRol userRol)
@@ -107,22 +91,21 @@ namespace HotelsA.Controllers
         }
 
         // GET: UserRols/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (Session["UserLogin"] == null)
             {
                 return RedirectToAction("index", "user");
             }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+           
             UserRol userRol = _context.UserRols.Find(id);
             if (userRol == null)
             {
                 return HttpNotFound();
             }
-            return View(userRol);
+            _context.UserRols.Remove(userRol);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: UserRols/Delete/5

@@ -26,7 +26,7 @@ namespace HotelsA.Controllers
             return View(_context.Categories.ToList());
         }
 
-        // GET: Categories/Details/5
+        // GET: Categories/Details/
         public ActionResult Details(int? id)
         {
             
@@ -64,7 +64,7 @@ namespace HotelsA.Controllers
             return View(category);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Categories/Edit/
         public ActionResult Edit(int? id)
         {
             
@@ -80,7 +80,7 @@ namespace HotelsA.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Categories/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,CategoryName")] Category category)
@@ -95,23 +95,25 @@ namespace HotelsA.Controllers
             return View(category);
         }
 
-        // GET: Categories/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Categories/Delete/
+        public ActionResult Delete(int id)
         {
-            
-            if (id == null)
+            if (Session["UserLogin"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("index", "user");
             }
+
             Category category = _context.Categories.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
             }
-            return View(category);
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        // POST: Categories/Delete/5
+        // POST: Categories/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

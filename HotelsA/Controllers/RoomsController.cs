@@ -60,7 +60,7 @@ namespace HotelsA.Controllers
             return View(room);
         }
 
-        // GET: Rooms/Edit/5
+        // GET: Rooms/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,7 +76,7 @@ namespace HotelsA.Controllers
             return View(room);
         }
 
-        // POST: Rooms/Edit/5
+        // POST: Rooms/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Number,Price,Status,PersonCapacity,ChildCapacity,Desc,BedTypeId")] Room room)
@@ -91,26 +91,25 @@ namespace HotelsA.Controllers
             return View(room);
         }
 
-        // GET: Rooms/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Rooms/Delete/
+        public ActionResult Delete(int id)
         {
             if (Session["UserLogin"] == null)
             {
                 return RedirectToAction("index", "user");
             }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+           
             Room room = _context.Rooms.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
             }
-            return View(room);
+            _context.Rooms.Remove(room);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        // POST: Rooms/Delete/5
+        // POST: Rooms/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

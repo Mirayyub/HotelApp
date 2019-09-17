@@ -17,25 +17,11 @@ namespace HotelsA.Controllers
         private HotelsAContext _context = new HotelsAContext();
 
         // GET: Customers
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View(_context.Customers.ToList());
         }
 
-        // GET: Customers/Details/5
-        public async Task<ActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Customer customer = await _context.Customers.FindAsync(id);
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
-            return View(customer);
-        }
 
         // GET: Customers/Create
         public ActionResult Create()
@@ -46,26 +32,26 @@ namespace HotelsA.Controllers
         // POST: Customers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Fullname,Phonenumber,Passportcode")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Fullname,Phonenumber,Passportcode")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 _context.Customers.Add(customer);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(customer);
         }
 
-        // GET: Customers/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        // GET: Customers/Edit/
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = await _context.Customers.FindAsync(id);
+            Customer customer = _context.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -73,45 +59,39 @@ namespace HotelsA.Controllers
             return View(customer);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Customers/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Fullname,Phonenumber,Passportcode")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,Fullname,Phonenumber,Passportcode")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 _context.Entry(customer).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                  _context.SaveChanges();
+                return RedirectToAction("index");
             }
             return View(customer);
         }
 
-        // GET: Customers/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        // GET: Customers/Delete/
+        public  ActionResult Delete(int id)
         {
-            if (id == null)
+            if (Session["UserLogin"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("index", "user");
             }
-            Customer customer = await _context.Customers.FindAsync(id);
+            Customer customer = _context.Customers.Find(id);
             if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
-        }
-
-        // POST: Customers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
-        {
-            Customer customer = await _context.Customers.FindAsync(id);
             _context.Customers.Remove(customer);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
+       
 
         
     }

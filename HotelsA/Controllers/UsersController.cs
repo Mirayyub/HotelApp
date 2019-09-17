@@ -26,24 +26,7 @@ namespace HotelsA.Controllers
             return View(users.ToList());
         }
 
-        // GET: Users/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (Session["UserLogin"] == null)
-            {
-                return RedirectToAction("index", "user");
-            }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = _context.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
+       
 
         // GET: Users/Create
         public ActionResult Create()
@@ -77,7 +60,7 @@ namespace HotelsA.Controllers
             return View(user);
         }
 
-        // GET: Users/Edit/5
+        // GET: Users/Edit/
         public ActionResult Edit(int? id)
         {
             if (Session["UserLogin"] == null)
@@ -97,7 +80,7 @@ namespace HotelsA.Controllers
             return View(user);
         }
 
-        // POST: Users/Edit/5
+        // POST: Users/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FullName,UserName,Password,UserRolId")] User user)
@@ -116,24 +99,23 @@ namespace HotelsA.Controllers
             return View(user);
         }
 
-        // GET: Users/Delete/5
+        // GET: Users/Delete/
         
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
             if (Session["UserLogin"] == null)
             {
                 return RedirectToAction("index", "user");
             }
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+           
             User user = _context.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Users/Delete/

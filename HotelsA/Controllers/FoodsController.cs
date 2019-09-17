@@ -22,20 +22,7 @@ namespace HotelsA.Controllers
             return View(foods.ToList());
         }
 
-        // GET: Foods/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Food food = _context.Foods.Find(id);
-            if (food == null)
-            {
-                return HttpNotFound();
-            }
-            return View(food);
-        }
+       
 
         // GET: Foods/Create
         public ActionResult Create()
@@ -60,7 +47,7 @@ namespace HotelsA.Controllers
             return View(food);
         }
 
-        // GET: Foods/Edit/5
+        // GET: Foods/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,22 +78,26 @@ namespace HotelsA.Controllers
             return View(food);
         }
 
-        // GET: Foods/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Foods/Delete/
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (Session["UserLogin"] == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("index", "user");
             }
+
             Food food = _context.Foods.Find(id);
             if (food == null)
             {
                 return HttpNotFound();
             }
-            return View(food);
+            
+            _context.Foods.Remove(food);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        // POST: Foods/Delete/5
+        // POST: Foods/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
