@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HotelsA.ViewModel
 {
-    public abstract class Login
+    public class Login
     {
         [Required(ErrorMessage = "İstifadəçi adını yazın.")]
         [MaxLength(30, ErrorMessage = "İstifadəçi adı maximum 30 xarakter olmalıdır")]

@@ -15,44 +15,15 @@ namespace HotelsA.Controllers
         // GET: User
         public ActionResult Index()
         {
-            string cookie = Request.Cookies["cookie"].Value.ToString();
-            User user = _context.Users.Include("UserRol").FirstOrDefault(u => u.token == cookie);
-            if (user.UserRol.UserType == "Restorant")
-
-            {
-
-                return RedirectToAction("index", "home");
-
-            }
-            if (user.UserRol.UserType == "Qebul")
-
-            {
-
-                return RedirectToAction("index", "home");
-
-            }
+            
             var list = _context.Users.Include("UserRol").OrderByDescending(r => r.Id).ToList();
             return View(list);
             
         }
         public ActionResult Create()
         {
-            string cookie = Request.Cookies["cookie"].Value.ToString();
-            User user = _context.Users.Include("UserRol").FirstOrDefault(u => u.token == cookie);
-            if (user.UserRol.UserType == "Restorant")
+            
 
-            {
-
-                return RedirectToAction("index", "home");
-
-            }
-            if (user.UserRol.UserType == "Qebul")
-
-            {
-
-                return RedirectToAction("index", "home");
-
-            }
 
             ViewBag.UserRol = _context.UserRols.ToList();
             return View();
@@ -61,23 +32,7 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
-            string cookie = Request.Cookies["cookie"].Value.ToString();
-            User ssr = _context.Users.Include("UserRol").FirstOrDefault(u => u.token == cookie);
-            if (ssr.UserRol.UserType == "Restorant")
-
-            {
-
-                return RedirectToAction("index", "home");
-
-            }
-            if (ssr.UserRol.UserType == "Qebul")
-
-            {
-
-                return RedirectToAction("index", "home");
-
-            }
-
+            
 
             if (!ModelState.IsValid)
             {
@@ -154,6 +109,11 @@ namespace HotelsA.Controllers
 
                 return RedirectToAction("index", "home");
 
+            }
+            if (_context.Users.Any(u => u.UserName == user.UserName))
+            {
+                ModelState.AddModelError("UserName", user.UserName + " İstifadəçi artıq mövcuddur.");
+                return View(user);
             }
             if (ModelState.IsValid)
             {

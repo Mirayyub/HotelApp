@@ -65,7 +65,7 @@ namespace HotelsA.Controllers
             if (Request.Cookies["cookie"] != null)
             {
                 HttpCookie cookie = new HttpCookie("cookie");
-                cookie.Expires = DateTime.Now.AddDays(-10);
+                cookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(cookie);
             }
             return RedirectToAction("index", "login");

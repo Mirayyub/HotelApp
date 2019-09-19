@@ -22,27 +22,27 @@
             <table class="table table-hover col-md-6">
                 <thead>
                     <tr>
-                        
+                        <th></th>
                         <th>Vəzifə</th>
                         <th></th>
                     </tr>
-                </thead>
+                </thead> @{var a = 1;}
                 <tbody class="col-md-6">
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            
-                            <td>
-                                <h6>@item.UserType</h6>
-                            </td>
-                            <td>
+                    <tr>
+                        <td>@(a++)</td>
+                        <td>
+                            <h6>@item.UserType</h6>
+                        </td>
+                        <td>
 
-                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+                            @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
 
-                                <a onclick="return confirm('@item.UserType Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id = item.Id })" class="far fa-trash-alt btn btn-danger"></a>
+                            <a onclick="return confirm('@item.UserType Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id = item.Id })" class="far fa-trash-alt btn btn-danger"></a>
 
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
                     }
 
                 </tbody>

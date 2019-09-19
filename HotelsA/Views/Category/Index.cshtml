@@ -21,17 +21,18 @@
             <div class="customer-list">
                 <table class="table table-hover">
                     <thead>
-                        <tr >
-                           
+                        <tr>
+                            <th></th>
                             <th>Ad</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                        @{var a = 1;}
                         @foreach (var item in Model)
                         {
                             <tr>
-                                
+                                <td>@(a++)</td>
                                 <td>
                                     <h6>@item.CategoryName</h6>
                                 </td>

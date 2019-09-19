@@ -21,6 +21,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Otaq</th>
                         <th>Giriş vaxtı</th>
                         <th>Çıxış vaxtı</th>
@@ -30,9 +31,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @{var a = 1;}
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@(a++)</td>
                             <td>
                                 @item.Room.Number
                             </td>

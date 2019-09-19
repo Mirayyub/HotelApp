@@ -32,6 +32,7 @@ namespace HotelsA.Controllers
                 return RedirectToAction("index", "home");
 
             }
+
             if (user.UserRol.UserType == "Qebul")
 
             {

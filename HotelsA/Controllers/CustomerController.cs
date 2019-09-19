@@ -29,7 +29,11 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(Customer customer)
         {
-            
+            if (_context.Customers.Any(c => c.Passportcode == customer.Passportcode))
+            {
+                ModelState.AddModelError("Passportcode", customer.Fullname + " Pasport artıq mövcuddur.");
+                return View(customer);
+            }
 
             if (ModelState.IsValid)
             {
@@ -76,7 +80,24 @@ namespace HotelsA.Controllers
 
         public ActionResult Delete(int id)
         {
-           
+            string cookie = Request.Cookies["cookie"].Value.ToString();
+            User user = _context.Users.Include("UserRol").FirstOrDefault(u => u.token == cookie);
+            if (user.UserRol.UserType == "Restorant")
+
+            {
+
+                return RedirectToAction("index", "home");
+
+            }
+
+            if (user.UserRol.UserType == "Qebul")
+
+            {
+
+                return RedirectToAction("index", "home");
+
+            }
+
             Customer customer = _context.Customers.Find(id);
 
             if (customer == null)

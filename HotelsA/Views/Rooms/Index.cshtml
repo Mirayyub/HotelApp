@@ -16,7 +16,7 @@
         <div class="room-list">
             <table class="table table-hover">
                 <thead>
-                    <tr>
+                    <tr><th></th>
                         <th>Şəkil</th>
                         <th>Otaq</th>
                         <th>Böyük</th>
@@ -30,9 +30,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @{var a = 1;}
                     @foreach (var item in Model)
                     {
                     <tr>
+                        <td>@(a++)</td>
                         <td>
                             <div class="photo" style="height:60px;width:60px;">
                                 <img src="~/Upload/@item.Photo" alt="" height="50" width="50">
@@ -48,17 +50,21 @@
                             <h6>@item.ChildCapacity</h6>
                         </td>
                         <td>
-                           <h6>@item.BedType.TypeName</h6>
-                            </td>
+                            <h6>@item.BedType.TypeName</h6>
+                        </td>
                         <td>
                             @item.Desc
                         </td>
                         <td>
-                            @if (item.Status == false) {<h6 class="price p-2" style="background-color:red;color:white;">Dolu</h6> }else{<h6 class="price p-2" style="background-color:green;color:white;">Boş</h6>}</td>
+                            @if (item.Status == false)
+                            {<h6 class="price p-2" style="background-color:red;color:white;">Dolu</h6> }
+                            else
+                            {<h6 class="price p-2" style="background-color:green;color:white;">Boş</h6>}
+                        </td>
                         <td>
                             <h6 class="price p-1">@item.Price.ToString("0.00") azn</h6>
                         </td>
-                        
+
                         <td>
                             @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-mini btn-info fas fa-info-circle bigger-10" })
                             @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })

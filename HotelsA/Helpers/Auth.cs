@@ -11,13 +11,11 @@ namespace HotelsA.Helpers
 {
     public class Auth : ActionFilterAttribute
     {
-        private HotelsContext context;
+        private readonly HotelsContext context;
         public Auth()
         {
             context = new HotelsContext();
         }
-        public int UserRolId { get; set; }
-        public UserRol UserRol { get; set; }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             base.OnActionExecuting(filterContext);
@@ -42,4 +40,5 @@ namespace HotelsA.Helpers
             }
 
         }
-    } }
+    }
+}

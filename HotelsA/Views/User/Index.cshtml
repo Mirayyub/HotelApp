@@ -25,7 +25,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr >
-                        
+                        <th></th>
                         <th>Ad Soyad</th>
                         <th>İstifadəçi adı</th>
                         <th>Vəzifə</th>
@@ -34,11 +34,11 @@
 
                 </thead>
                 <tbody>
-
+                    @{var a = 1;}
                     @foreach (var item in Model)
                     {
                         <tr>
-                            
+                            <td>@(a++)</td>
                             <td>
                                 <h6>@item.FullName</h6>
                             </td>
@@ -50,7 +50,7 @@
                                 <h6>@item.UserRol.UserType</h6>
                             </td>
                             <td>
-                                
+
                                 @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
 
                                 <a onclick="return confirm('@item.FullName Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>

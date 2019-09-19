@@ -9,14 +9,13 @@ using System.Web.Mvc;
 
 namespace HotelsA.Controllers
 {
-    [Auth]
+    
     public class HomeController : BaseController
     {
         public ActionResult Index()
         {
             
-            ViewBag.User = _context.Users.ToList();
-            ViewBag.Userrol = _context.UserRols.ToList();
+            
             return View();
         }
 

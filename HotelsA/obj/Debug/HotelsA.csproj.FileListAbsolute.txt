@@ -155,7 +155,6 @@ C:\Users\User\Desktop\final test\HotelsA\HotelsA\bin\System.Web.WebPages.Razor.x
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\bin\Newtonsoft.Json.xml
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\bin\Antlr3.Runtime.pdb
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.csprojAssemblyReference.cache
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.Migrations.init.resources
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.csproj.GenerateResource.cache
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.csproj.CoreCompileInputs.cache
@@ -163,3 +162,4 @@ C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.csproj.CopyCo
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.dll
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.pdb
 C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.Migrations.tokenadd.resources
+C:\Users\User\Desktop\final test\HotelsA\HotelsA\obj\Debug\HotelsA.csprojAssemblyReference.cache
