@@ -9,8 +9,6 @@ namespace HotelsA.Models
 {
     public class Room
     {
-
-
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Otaq nömrəsini yazın.")]
@@ -65,14 +63,17 @@ namespace HotelsA.Models
 
         [Display(Name = "Çarpayı Növü")]
         public BedType BedType { get; set; }
+        [Display(Name = "Şəkil")]
+        public string Photo { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase File { get; set; }
 
 
-        
 
         public List<Booking> Bookings { get; set; }
 
         public List<RestourantOrder> RestourantOrders { get; set; }
-
 
     }
 }

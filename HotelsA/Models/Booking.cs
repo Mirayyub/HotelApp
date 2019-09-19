@@ -30,7 +30,7 @@ namespace HotelsA.Models
         public decimal Price { get; set; }
         public int RoomId { get; set; }
 
-       
+
         public Room Room { get; set; }
 
 
@@ -38,6 +38,8 @@ namespace HotelsA.Models
 
         public User User { get; set; }
 
+
         public List<BookingDetail> BookingDetails { get; set; }
+
     }
 }

@@ -26,7 +26,7 @@ namespace HotelsA.Models
         [Display(Name = "İstifadəçi adı")]
         public string UserName { get; set; }
 
-
+        public string token { get; set; }
 
 
         [Display(Name = "Şifrə")]
@@ -34,11 +34,10 @@ namespace HotelsA.Models
         [MaxLength(60, ErrorMessage = "Şifrə maximum 60 xarakter olmalıdır.")]
         public string Password { get; set; }
 
+        
 
-
-
+        [Display(Name = "Vəzifə")]
         public int UserRolId { get; set; }
         public UserRol UserRol { get; set; }
-
     }
 }

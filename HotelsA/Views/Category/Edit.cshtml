@@ -1,0 +1,37 @@
+﻿@model Category
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="page">
+    <div id="category">
+
+        <div class="header">
+
+            <div class="col-6">
+                <h1>Yenilə</h1>
+            </div>
+
+        </div>
+
+
+
+        <div class="create">
+            <form method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.CategoryName)
+                    @Html.TextBoxFor(m => m.CategoryName, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CategoryName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Yenilə</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        @Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+</div>

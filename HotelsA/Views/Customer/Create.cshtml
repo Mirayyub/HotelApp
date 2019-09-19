@@ -1,0 +1,55 @@
+﻿@model Customer
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page">
+    <div id="customer">
+
+        <div class="header">
+
+            <div class="col-6">
+                <h1>Müştəri Əlavə et</h1>
+            </div>
+
+        </div>
+
+
+
+        <div class="create col-md-4">
+            <form method="post">
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Fullname)
+                    @Html.TextBoxFor(m => m.Fullname, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Fullname, "", new { @class = "text-danger" })
+                </div><div class="form-group">
+                    @Html.LabelFor(m => m.Passportcode)
+                    @Html.TextBoxFor(m => m.Passportcode, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Passportcode, "", new { @class = "text-danger" })
+                </div><div class="form-group">
+                    @Html.LabelFor(m => m.Phonenumber)
+                    @Html.TextBoxFor(m => m.Phonenumber, null, new { @class = "form-control" ,@type="number"})
+                    @Html.ValidationMessageFor(m => m.Phonenumber, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsDelete)
+                    @Html.DropDownListFor(model => model.IsDelete, new List<SelectListItem>()
+{
+new SelectListItem() { Text = "Xeyr", Value = "False" },
+new SelectListItem() { Text = "Bəli", Value = "True"}
+},  new { @id = "tress", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsDelete)
+
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success">Əlavə et</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        @Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+</div>

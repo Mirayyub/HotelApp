@@ -11,7 +11,7 @@ namespace HotelsA.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Qida")]
+        [Display(Name = "Məhsul")]
         [Required(ErrorMessage = "Qidanı daxil edin")]
         [MaxLength(50, ErrorMessage = "Qida maximum 50 xarakter olmalıdır")]
         [MinLength(2, ErrorMessage = "Qida minumum 2 xarakter olmalıdır")]
@@ -27,7 +27,7 @@ namespace HotelsA.Models
 
 
 
-        [Display(Name = "Status")]
+        
         public bool? IsDelete { get; set; }
 
 
@@ -35,7 +35,7 @@ namespace HotelsA.Models
 
         [Display(Name = "Kateqoriya")]
         public int CategoryId { get; set; }
-
+        [Display(Name = "Kateqoriya")]
         public Category Category { get; set; }
 
         public List<RestourantOrder> RestourantOrders { get; set; }

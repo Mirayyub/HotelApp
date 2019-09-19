@@ -1,73 +1,64 @@
-﻿@model VwLogin
+﻿@model List<User>
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
 }
 
-<!doctype html>
-<html lang="en">
+<div class="page">
+    <div id="user">
 
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="ThemeMakker">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>:: Hotel Application :: </title>
-    <link rel="stylesheet" href="~/Public/vendor/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="~/Public/vendor/fontawesome/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="~/Public/css/main.css">
-</head>
-
-<body class="theme-indigo">
-    
-    <!-- WRAPPER -->
-    <div id="wrapper">
-        <div class="vertical-align-wrap">
-            <div class="vertical-align-middle auth-main">
-                <div class="auth-box">
-                    <div class="top">
-                        <img src="~/Public/images/brand/icon_black.svg" alt="Lucid">
-                        <strong>Hotel</strong> <span>Application</span>
-                    </div>
-                    <div class="card">
-                        <div class="header">
-                            <p class="lead">İstifadəçi girişi</p>
-                        </div>
-                        <div class="body">
-                            <form class="form-auth-small" method="post">
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.UserName)
-                                    @Html.TextBoxFor(m => m.UserName, null, new { @class = "form-control", @placeholder = "İstifadəçi adı" })
-                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(m => m.Password)
-                                    @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control", @type = "password",@placeholder = "Şifrə" })
-                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group clearfix">
-                                    <label class="fancy-checkbox element-left">
-                                        <input type="checkbox">
-                                        <span>Yadda saxla</span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Daxil ol</button>
-                                
-                            </form>
-                        </div>
-                    </div>
+        <div class="header">
+            <div class="row">
+                <div class="col-12">
+                    <h1>İstifadəçilər</h1>
+                </div>
+                <div class="col-md-6">
+                    <a href="@Url.Action("create","user")" class="btn btn-primary">İstifadəçi Əlavə et</a>
+                </div>
+                <div class="col-md-6">
+                    <input placeholder="Axtar" />
+                    <button id="SearchUse" class="btn btn-success">Axtar</button>
                 </div>
             </div>
         </div>
+
+        <div class="customer-list col-md-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr >
+                        
+                        <th>Ad Soyad</th>
+                        <th>İstifadəçi adı</th>
+                        <th>Vəzifə</th>
+                        <th></th>
+                    </tr>
+
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            
+                            <td>
+                                <h6>@item.FullName</h6>
+                            </td>
+
+                            <td>
+                                <h6>@item.UserName</h6>
+                            </td>
+                            <td>
+                                <h6>@item.UserRol.UserType</h6>
+                            </td>
+                            <td>
+                                
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+
+                                <a onclick="return confirm('@item.FullName Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!-- END WRAPPER -->
-    <!-- Core -->
-    <script src="~/Public/bundles/libscripts.bundle.js"></script>
-    <script src="~/Public/bundles/vendorscripts.bundle.js"></script>
-
-    <script src="~/Public/js/theme.js"></script>
-</body>
-
-</html>
+</div>

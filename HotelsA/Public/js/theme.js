@@ -1,4 +1,4 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
     "use strict";
     
     // sidebar navigation
@@ -7,7 +7,7 @@ $(document).ready(function() {
     setTimeout(function () {
         $('.page-loader-wrapper').fadeOut();
     }, 100);
-   
+    
     $(window).bind("resize", function () {
         if ($(this).width() < 1201) {
             $("body").addClass("layout-fullwidth");
@@ -15,7 +15,7 @@ $(document).ready(function() {
             $("body").removeClass("layout-fullwidth");
         }
     }).trigger('resize');
-
+    
     
     // right side bar
 	$('a.rightbar_btn').on('click', function() {

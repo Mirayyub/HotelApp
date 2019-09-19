@@ -16,15 +16,10 @@ namespace HotelsA.Models
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
-
+        
         public bool? IsDeleted { get; set; }
 
-
         public int BookingId { get; set; }
-
         public Booking Booking { get; set; }
-
-
-        
     }
 }

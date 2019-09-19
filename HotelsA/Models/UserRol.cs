@@ -14,7 +14,7 @@ namespace HotelsA.Models
         [Required(ErrorMessage = "Vəzifəni daxil edin")]
         [MaxLength(500, ErrorMessage = "Vəzifəni maximum 50 xarakter olmalıdır")]
         [MinLength(2, ErrorMessage = "Vəzifəni minumum 2 xarakter olmalıdır")]
-        public string UserType{get; set;}
+        public string UserType { get; set; }
         public List<User> Users { get; set; }
     }
 }

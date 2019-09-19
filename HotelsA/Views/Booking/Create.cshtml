@@ -1,0 +1,50 @@
+﻿@model Booking
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page">
+    <div id="booking">
+        <div class="header">
+            <div class="col-12">
+                <h1>Booking</h1>
+            </div>
+        </div>
+        <div class="create col-md-4">
+            <form method="post">
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RoomId)
+                    @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "id", "number"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CheckedIn)
+                    @Html.TextBoxFor(m => m.CheckedIn, null, new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(m => m.CheckedIn, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CheckedOut)
+                    @Html.TextBoxFor(m => m.CheckedOut, null, new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(m => m.CheckedOut, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group ">
+                    @Html.LabelFor(m => m.CustomerId)
+                    @Html.DropDownListFor(m => m.CustomerId, new SelectList(ViewBag.Customers, "id", "fullname"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserId)
+                    @Html.DropDownListFor(m => m.UserId, new SelectList(ViewBag.Users, "id", "Fullname"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Book</button>
+                    </div>
+                </div>
+            </form>
+        </div>@Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+</div>

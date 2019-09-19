@@ -1,0 +1,63 @@
+﻿@model List<Food>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page">
+    <div id="food">
+
+        <div class="header">
+          
+                <div class="col-12">
+                    <h1>Qidalar</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("create","food")" class="btn btn-primary">Əlavə Et</a>
+                </div>
+
+           
+        </div>
+
+        <div class="customer-list">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        
+                        <th>Ad</th>
+                        <th>Kategoriya</th>
+                        <th>Qiyməti</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            
+                            <td>
+                                <h6>@item.Name</h6>
+                            </td>
+
+                            <td>
+                                <h6>@item.Category.CategoryName</h6>
+                            </td>
+                            <td>
+                                <h6>@item.Price.ToString("0.00") azn</h6>
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+
+                                <a onclick="return confirm('@item.Name Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id = item.Id })" class="far fa-trash-alt btn btn-danger"></a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</div>

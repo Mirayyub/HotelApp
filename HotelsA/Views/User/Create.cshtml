@@ -1,0 +1,53 @@
+﻿@model User
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="page">
+    <div id="user">
+
+        <div class="header">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Yeni İstifadəçi Əlavə et</h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="create col-md-6">
+            <form method="post">
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FullName)
+                    @Html.TextBoxFor(m => m.FullName, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.TextBoxFor(m => m.Password, null, new { @class = "form-control", @type ="password" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserRolId)
+                    @Html.DropDownListFor(m => m.UserRolId, new SelectList(ViewBag.UserRol, "Id", "usertype"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserRolId, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Əlavə Et</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>@Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+
+
+</div>

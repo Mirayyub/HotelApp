@@ -1,78 +1,74 @@
-﻿@model IEnumerable<HotelsA.Models.Room>
-
+﻿@model List<Room>
 @{
     ViewBag.Title = "Index";
 }
 
 <div class="page">
-    <p>
+    <div id="room">
+        <div class="header">
+                <div class="col-12">
+                    <h1>Otaqlar</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("create","rooms")" class="btn btn-primary">Əlavə et</a>
+                </div>
+        </div>
+        <div class="room-list">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Şəkil</th>
+                        <th>Otaq</th>
+                        <th>Böyük</th>
+                        <th>Uşaq</th>
+                        <th>Yataq</th>
+                        <th>Haqqında</th>
+                        <th>Status</th>
+                        <th>Qiymət</th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            <div class="photo" style="height:60px;width:60px;">
+                                <img src="~/Upload/@item.Photo" alt="" height="50" width="50">
+                            </div>
+                        </td>
+                        <td>
+                            <h6>@item.Number</h6>
+                        </td>
+                        <td>
+                            <h6>@item.PersonCapacity</h6>
+                        </td>
+                        <td>
+                            <h6>@item.ChildCapacity</h6>
+                        </td>
+                        <td>
+                           <h6>@item.BedType.TypeName</h6>
+                            </td>
+                        <td>
+                            @item.Desc
+                        </td>
+                        <td>
+                            @if (item.Status == false) {<h6 class="price p-2" style="background-color:red;color:white;">Dolu</h6> }else{<h6 class="price p-2" style="background-color:green;color:white;">Boş</h6>}</td>
+                        <td>
+                            <h6 class="price p-1">@item.Price.ToString("0.00") azn</h6>
+                        </td>
+                        
+                        <td>
+                            @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-mini btn-info fas fa-info-circle bigger-10" })
+                            @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+                            <a onclick="return confirm('Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
 
-        <a href="@Url.Action("create", "rooms")" class="btn btn-primary">Otaq əlavə et</a>
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BedType.TypeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PersonCapacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChildCapacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Desc)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BedType.TypeName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Number)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PersonCapacity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ChildCapacity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Desc)
-                </td>
-                <td>
-                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
-                    @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-mini btn-info fas fa-info-circle bigger-10" })
-                    <a onclick="return confirm('Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
-
-
-
-                </td>
-
-                
-            </tr>
-        }
-
-    </table>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-

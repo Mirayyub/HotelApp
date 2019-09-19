@@ -5,14 +5,14 @@ namespace HotelsA.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HotelsA.Data.HotelsAContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<HotelsA.Data.HotelsContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HotelsA.Data.HotelsAContext context)
+        protected override void Seed(HotelsA.Data.HotelsContext context)
         {
             //  This method will be called after migrating to the latest version.
 

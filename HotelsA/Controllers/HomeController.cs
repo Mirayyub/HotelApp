@@ -1,4 +1,5 @@
-﻿using HotelsA.Data;
+﻿using HotelsA.Helpers;
+using HotelsA.Models;
 using HotelsA.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -8,25 +9,17 @@ using System.Web.Mvc;
 
 namespace HotelsA.Controllers
 {
-    public class HomeController : Controller
+    [Auth]
+    public class HomeController : BaseController
     {
-        private readonly HotelsAContext _context;
-
-        public HomeController()
-        {
-            _context = new HotelsAContext();
-        }
         public ActionResult Index()
         {
-            if (Session["UserLogin"] == null)
-            {
-                return RedirectToAction("index", "user");
-            }
             
+            ViewBag.User = _context.Users.ToList();
+            ViewBag.Userrol = _context.UserRols.ToList();
             return View();
         }
-        
 
-
+       
     }
 }

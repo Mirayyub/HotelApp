@@ -1,0 +1,51 @@
+﻿@model List<BedType>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page">
+    <div id="bedtype">
+
+        <div class="header">
+            <div class="row">
+                
+                <div class="col-2 text-right">
+                    <a href="@Url.Action("create", "bedtypes")" class="btn btn-primary">Otaq əlavə et</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="customer-list">
+            <table class="table table-hover">
+                
+
+                <tr>
+                    <th>
+                        Ad
+                    </th>
+                    </tr>
+
+                   <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <h6>@item.TypeName</h6>
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+                                <a onclick="return confirm('Silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</div>

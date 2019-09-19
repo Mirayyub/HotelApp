@@ -1,0 +1,60 @@
+﻿@model RestourantOrder
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="page">
+    <div id="restoran">
+
+        <div class="header">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Sifarişi Yenilə</h1>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="create col-md-6">
+            <form method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RoomId)
+                    @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Room, "Id", "number"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FoodId)
+                    @Html.DropDownListFor(m => m.FoodId, new SelectList(ViewBag.Food, "Id", "name"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FoodId, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FoodCount)
+                    @Html.TextBoxFor(m => m.FoodCount, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.FoodCount, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.IsDelete)
+                    @Html.DropDownListFor(model => model.IsDelete, new List<SelectListItem>()
+                      {
+                       new SelectListItem() { Text = "Aktiv", Value = "True" },
+                       new SelectListItem() { Text = "Deaktiv", Value = "False"} },
+                       new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsDelete)
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Yenilə</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        @Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+</div>

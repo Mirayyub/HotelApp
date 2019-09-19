@@ -1,0 +1,65 @@
+﻿@model  List<Booking>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page">
+    <div id="booking">
+        <div class="header">
+            
+                <div class="col-12">
+                    <h1>Booking</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("create","booking")" class="btn btn-primary">Booking</a>
+                </div>
+
+           
+        </div>
+
+        <div class="room-list">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Otaq</th>
+                        <th>Giriş vaxtı</th>
+                        <th>Çıxış vaxtı</th>
+                        <th>Müştəri</th>
+                        <th>İstifadəçi</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Room.Number
+                            </td>
+                            <td>
+                                @item.CheckedIn
+                            </td>
+                            <td>
+                                @item.CheckedOut
+                            </td>
+                            <td>
+                                @item.Customer.Fullname
+                            </td>
+
+                            <td>
+                                @item.User.FullName
+                            </td>
+                            <td>@item.Price</td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+                                <a onclick="return confirm('@item.Room.Number nömrəli otağın bookingini silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

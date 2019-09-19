@@ -1,74 +1,43 @@
-﻿@model HotelsA.Models.Room
-
+﻿@model Room
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Index";
 }
 
-
-
 <div class="page">
-    <h4>Otaq Haqqında</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BedType.TypeName)
-        </dt>
+    <div id="room">
+        <div class="header">
+            <div class="col-12 mb-3">
+                <h1>Otaq haqqında</h1>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.BedType.TypeName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Number)
-        </dt>
+        <div class="detail">
+            <form method="post" enctype="multipart/form-data" class="col-lg-10">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="Photo" value="@Model.Photo" />
+                <div class="form-row">
+                    <div class="form-group col-lg-7">
+                        <div class="photo">
+                            <img src="~/Upload/@Model.Photo" alt="" height="350" width="350">
+                        </div>
+                    </div>
+                    <div class="col-lg-5"><div class="jumbotron">
+                                              <p class="lead">
+                                                  <div><b>Otaq Nömrəsi:</b> @Model.Number</div>
+                                                  <div><b>Böyük sayı</b>: @Model.PersonCapacity nəfər</div>
+                                                  <div><b>Uşaq Sayı</b>: @Model.ChildCapacity nəfər</div>
+                                                  <div><b>Çarpayı növü:</b> @Model.BedType.TypeName</div>
+                                                  <div><b>Otaq haqqında</b> @Model.Desc</div>
+                                                  <div><b>Günlük qiyməti</b> @Model.Price.ToString("0.00") AZN</div></p>
+                       @if (Model.IsDeleted == false) { <a class="btn btn-success btn-lg" href="@Url.Action("create","booking")" role="button">Book Now</a>} 
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p class="mt-3">
 
-        <dd>
-            @Html.DisplayFor(model => model.Number)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PersonCapacity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PersonCapacity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ChildCapacity)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ChildCapacity)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Desc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Desc)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    
-    @Html.ActionLink("Geriyə qayıt", "Index")
-</p>
+            @Html.ActionLink("Geriyə qayıt", "index")
+        </p>
+        </div></div>

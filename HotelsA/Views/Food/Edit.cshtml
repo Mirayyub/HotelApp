@@ -1,0 +1,51 @@
+﻿@model Food
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="page">
+    <div id="food">
+
+        <div class="header">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Yenilə</h1>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="create col-md-6">
+            <form method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Price)
+                    @Html.TextBoxFor(m => m.Price, null, new { @class = "form-control", @type = "number" })
+                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CategoryId)
+                    @Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewBag.Category, "Id", "categoryname"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.CategoryId, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success">Yenilə</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        @Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+    </div>

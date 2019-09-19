@@ -1,0 +1,38 @@
+﻿@model UserRol
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="page">
+    <div id="userrol">
+
+        <div class="header">
+            <div class="row">
+                <div class="col-6">
+                    <h1>Yenilə</h1>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="create">
+            <form method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="form-group col-md-4">
+                    @Html.LabelFor(m => m.UserType)
+                    @Html.TextBoxFor(m => m.UserType, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserType, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success">Yenilə</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @Html.ActionLink("Geriyə qayıt", "index")
+    </div>
+</div>

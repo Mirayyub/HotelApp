@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,7 +14,7 @@
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="~/Public/vendor/fullcalendar/fullcalendar.min.css">
-    
+
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/Public/css/main.css" type="text/css">
 </head>
@@ -88,7 +89,7 @@
                             </a>
                             <a class="dropdown-item" href="#"><i class="fa fa-cog text-primary"></i>Settings</a>
                             <div class="dropdown-divider" role="presentation"></div>
-                            <a class="dropdown-item" href="@Url.Action("logout","user")"><i class="fa fa-briefcase text-primary"></i>Çıxış</a>
+                            <a class="dropdown-item" href="@Url.Action("logout","login")"><i class="fa fa-briefcase text-primary"></i>Çıxış</a>
                         </div>
                     </li>
                 </ul>
@@ -103,7 +104,9 @@
                 <div class="user-info">
                     <div class="image"><a href="#"><img src="~/Public/images/user.png" alt="User"></a></div>
                     <div class="detail mt-3">
-                        <h5 class="mb-0">Mike Thomas</h5>
+                        <h5 class="mb-0">
+                            Mike Thomas
+                        </h5>
                         <small>Admin</small>
                     </div>
                     <div class="social">
@@ -113,34 +116,37 @@
                     </div>
                 </div>
                 <ul id="main-menu" class="metismenu">
-                    <li class="g_heading">Main</li>
+                   
                     <li><a href="@Url.Action("index","home")"><i class="ti-calendar"></i><span>Əsas Səhifə</span></a></li>
-                    <li><a href="@Url.Action("index","customers")"><i class="ti-home"></i><span>Müştərilər</span></a></li>
-                    <li class="g_heading">Restoran</li>
+                    <li><a href="@Url.Action("index","booking")"><i class="ti-book"></i><span>Booking</span></a></li>
+                    <li><a href="@Url.Action("index","customer")"><i class="ti-home"></i><span>Müştərilər</span></a></li>
+                   
                     <li>
                         <a href="javascript:void(0)" class="has-arrow"><i class="ti-pie-chart"></i><span>Restoran</span></a>
                         <ul>
-                            <li><a href="@Url.Action("index","foods")"><i class="ti-comments"></i><span>Qidalar</span></a></li>
-                            <li><a href="@Url.Action("index","categories")"><i class="ti-pencil-alt"></i><span>Kateqoriyar</span></a></li>
+                            <li><a href="@Url.Action("index","restourant")"><i class="ti-server"></i><span>Restoran sifarişi</span></a></li>
+                            <li><a href="@Url.Action("index","food")"><i class="ti-comments"></i><span>Məhsullar</span></a></li>
+                            <li><a href="@Url.Action("index","category")"><i class="ti-pencil-alt"></i><span>Kateqoriyar</span></a></li>
 
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0)" class="has-arrow"><i class="ti-pencil-alt"></i><span>Admin</span></a>
                         <ul>
-                            <li><a href="@Url.Action("index","users")"><i class="ti-user"></i><span>İstifadəçilər</span></a></li>
+                            <li><a href="@Url.Action("index","user")"><i class="ti-user"></i><span>İstifadəçilər</span></a></li>
 
-                            <li><a href="@Url.Action("index","userrols")"><i class="ti-notepad"></i><span>Vəzifələr</span></a></li>
+                            <li><a href="@Url.Action("index","userrol")"><i class="ti-notepad"></i><span>Vəzifələr</span></a></li>
+                         </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="has-arrow"><i class="ti-pencil-alt"></i><span>Otaq</span></a>
+                        <ul>
+                            <li><a href="@Url.Action("index","rooms")"><i class="ti-rocket"></i><span>Otaqlar</span></a></li>
 
+                            <li><a href="@Url.Action("index","bedtypes")"><i class="ti-bell"></i><span>Yataq növü</span></a></li>
                         </ul>
                     </li>
-                    <li class="g_heading">Application</li>
-                    <li><a href="@Url.Action("index","rooms")"><i class="ti-email"></i><span>Otaqlar</span></a></li>
-                    <li><a href="@Url.Action("index","user")"><i class="ti-id-badge"></i><span>Login</span></a></li>
-
-
-
-                </ul>
+                    <li><a href="@Url.Action("index","login")"><i class="ti-id-badge"></i><span>Login</span></a></li></ul>
             </nav>
         </div>
 

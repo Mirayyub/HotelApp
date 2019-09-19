@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,22 +10,24 @@ namespace HotelsA.Models
     {
         public int Id { get; set; }
 
-        public int CustomerId { get; set; }
 
-        public Customer Customer { get; set; }
-
+        [Display(Name = "Məhsul")]
+        [Required(ErrorMessage = "Məhsulu daxil edin")]
+        
         public int FoodId { get; set; }
-
+     
         public Food Food { get; set; }
-
+        [Display(Name = "Məhsul sayı")]
+        [Required(ErrorMessage = "Qidanı daxil edin")]
+       
         public int FoodCount { get; set; }
 
         public bool? IsDelete { get; set; }
 
-        public int UserId { get; set; }
 
-        public User User { get; set; }
-
+        [Display(Name = "Otaq")]
+        [Required(ErrorMessage = "Otaq daxil edin")]
+        
         public int RoomId { get; set; }
         public Room Room { get; set; }
     }

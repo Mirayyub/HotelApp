@@ -31,14 +31,12 @@ namespace HotelsA.Models
         [MinLength(6, ErrorMessage = "Pasport Seriyası 6 rəqəmli olmalıdır.")]
         [MaxLength(15, ErrorMessage = "Pasport Seriyası 15 rəqəmli olmalıdır.")]
         public string Passportcode { get; set; }
+       
 
         public bool? IsDelete { get; set; }
 
 
         public List<Booking> Booking { get; set; }
 
-        public List<RestourantOrder> RestourantOrders { get; set; }
-
-        
     }
 }
