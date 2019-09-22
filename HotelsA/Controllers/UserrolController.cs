@@ -30,7 +30,11 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(UserRol userrol)
         {
-            
+            if (_context.UserRols.Any(u => u.UserType == userrol.UserType))
+            {
+                ModelState.AddModelError("Roles", userrol.UserType + " artıq mövcuddur.");
+                return View(userrol);
+            }
             if (ModelState.IsValid)
             {
                 

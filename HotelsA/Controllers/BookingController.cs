@@ -41,10 +41,9 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(Booking booking)
         {
+
            
 
-            
-           
             var room = _context.Rooms.Find(booking.RoomId);
 
             TimeSpan calc = booking.CheckedOut.Subtract(booking.CheckedIn);

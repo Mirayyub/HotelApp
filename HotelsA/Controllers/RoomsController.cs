@@ -30,16 +30,21 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(Room room)
         {
-           
-            if (room.File.ContentLength / 1024 / 1024 > 4)
-            {
-                ModelState.AddModelError("Şəkil", "Maksimum 4mb Şəkil Yükləyə Bilərsiniz");
-            }
             if (_context.Rooms.Any(r => r.Number == room.Number))
             {
-                ModelState.AddModelError("Number", room.Number + " Otaq artıq mövcuddur.");
+                ModelState.AddModelError("Room", room.Number + " Otaq artıq mövcuddur.");
                 return View(room);
             }
+            if (room.File != null)
+            {
+               
+
+                if (room.File.ContentLength / 1024 / 1024 > 4)
+                {
+                    ModelState.AddModelError("Şəkil", "Siz Maksimum 4 mblıq yükləyə bilərsiniz");
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 room.Photo = FileManager.Upload(room.File);

@@ -48,7 +48,6 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(BedType bedtype)
         {
-
             string cookie = Request.Cookies["cookie"].Value.ToString();
             User user = _context.Users.Include("UserRol").FirstOrDefault(u => u.token == cookie);
             if (user.UserRol.UserType == "Restorant")
@@ -65,6 +64,12 @@ namespace HotelsA.Controllers
                 return RedirectToAction("index", "home");
 
             }
+            if (_context.BedTypes.Any(c => c.TypeName == bedtype.TypeName))
+            {
+                ModelState.AddModelError("BedType", bedtype.TypeName + " artıq mövcuddur.");
+                return View(bedtype);
+            }
+            
             if (ModelState.IsValid)
             {
                 _context.BedTypes.Add(bedtype);
@@ -95,7 +100,12 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Edit(BedType BedType)
         {
-           
+            if (_context.BedTypes.Any(b => b.TypeName == BedType.TypeName))
+            {
+                ModelState.AddModelError("!", "Bu adda yataq növü artıq mövcuddur");
+
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Entry(BedType).State = System.Data.Entity.EntityState.Modified;

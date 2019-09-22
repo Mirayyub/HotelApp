@@ -29,10 +29,14 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(Category category)
         {
-           
 
-            if (ModelState.IsValid)
+            if (_context.Categories.Any(b => b.CategoryName == category.CategoryName))
             {
+                ModelState.AddModelError("!", "Bu adda kateqoriya artıq mövcuddur");
+
+            }else if(ModelState.IsValid)
+            {
+                 
                 _context.Categories.Add(category);
                 _context.SaveChanges();
 

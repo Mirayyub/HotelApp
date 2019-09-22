@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        @Html.LabelFor(m => m.PersonCapacity)
+                        <div>Şəxs sayı</div>
                         @Html.TextBoxFor(m => m.PersonCapacity, null, new { @class = "form-control", @type = "number" })
                         @Html.ValidationMessageFor(m => m.PersonCapacity, "", new { @class = "text-danger" })
                     </div>

@@ -32,7 +32,11 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(Food food)
         {
-           
+            if (_context.Foods.Any(f => f.Name == food.Name))
+            {
+                ModelState.AddModelError("!", "Bu adda məhsul artıq mövcuddur");
+
+            }
             if (ModelState.IsValid)
             {
                 _context.Foods.Add(food);
@@ -60,7 +64,11 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Edit(Food food)
         {
-            
+            if (_context.Foods.Any(f => f.Name == food.Name))
+            {
+                ModelState.AddModelError("!", "Bu adda məhsul artıq mövcuddur");
+
+            }
             if (ModelState.IsValid)
             {
                 _context.Entry(food).State = System.Data.Entity.EntityState.Modified;

@@ -13,13 +13,13 @@
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HotelsA.Data.HotelsContext context)
+        protected override void Seed(HotelsA.Data.HotelsContext _context)
         {
             UserRol usrr = new UserRol
             {
                 UserType = "Administrator"
             };
-            context.UserRols.Add(usrr);
+            _context.UserRols.Add(usrr);
 
             User user = new User
             {
@@ -28,20 +28,20 @@
                 Password = "admin",
                 UserRolId = 1
             };
-            context.Users.Add(user);
+            _context.Users.Add(user);
 
             BedType bdty1 = new BedType
             {
                 TypeName = "Cüt"
             };
-            context.BedTypes.Add(bdty1);
+            _context.BedTypes.Add(bdty1);
 
             BedType bdty2 = new BedType
             {
                 TypeName = "Tək"
             };
-            context.BedTypes.Add(bdty2);
-            context.SaveChanges();
+            _context.BedTypes.Add(bdty2);
+            _context.SaveChanges();
         }
     }
 }
