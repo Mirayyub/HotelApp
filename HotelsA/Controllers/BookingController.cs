@@ -40,16 +40,23 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Create(Booking booking)
         {
-            
+           
+            var room = _context.Rooms.Find(booking.RoomId);
+
+            TimeSpan calc = booking.CheckedOut.Subtract(booking.CheckedIn);
+
+            booking.Price = calc.Days * room.Price;
+
             if (ModelState.IsValid)
             {
                 _context.Bookings.Add(booking);
                 _context.SaveChanges();
                 return RedirectToAction("index");
             }
+
+
             ViewBag.Food = _context.Foods.OrderBy(f => f.Name).ToList();
             ViewBag.Users = _context.Users.OrderBy(u => u.FullName).ToList();
-
             ViewBag.Rooms = _context.Rooms.OrderBy(r => r.Number).ToList();
             ViewBag.Customers = _context.Customers.OrderBy(c => c.Fullname).ToList();
 

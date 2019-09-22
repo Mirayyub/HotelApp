@@ -14,27 +14,32 @@
             <form method="post">
 
                 <div class="form-group">
-                    @Html.LabelFor(m => m.RoomId)
+                    <div>Otaq Nömrəsi</div>
                     @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "id", "number"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.CheckedIn)
-                    @Html.TextBoxFor(m => m.CheckedIn, null, new { @class = "form-control", @type = "date" })
+                    @Html.TextBoxFor(m => m.CheckedIn, null, new { @class = "form-control", @min = DateTime.Now.ToString("dd/MM/yyyy"),@max = DateTime.Now.AddMonths(3).ToString("dd-MM-yyyy"),@type = "date" })
                     @Html.ValidationMessageFor(m => m.CheckedIn, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.CheckedOut)
-                    @Html.TextBoxFor(m => m.CheckedOut, null, new { @class = "form-control", @type = "date" })
+                    @Html.TextBoxFor(m => m.CheckedOut, null, new { @class = "max form-control",@min = DateTime.Now.ToString("dd/MM/yyyy"),@max = DateTime.Now.AddMonths(3).ToString("dd-MM-yyyy") ,@type = "date" })
                     @Html.ValidationMessageFor(m => m.CheckedOut, "", new { @class = "text-danger" })
                 </div>
+                <div class="form-group">
+                    <div>Otağın 1 günlük qiyməti</div>
+                    @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "Id", "Price"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
+                </div>
                 <div class="form-group ">
-                    @Html.LabelFor(m => m.CustomerId)
+                    <div>Müştəri</div>
                     @Html.DropDownListFor(m => m.CustomerId, new SelectList(ViewBag.Customers, "id", "fullname"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.UserId)
+                    <div>Əlavə edən İstifadəçi</div>
                     @Html.DropDownListFor(m => m.UserId, new SelectList(ViewBag.Users, "id", "Fullname"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.UserId, "", new { @class = "text-danger" })
                 </div>
