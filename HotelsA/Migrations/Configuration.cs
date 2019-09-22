@@ -1,5 +1,6 @@
-namespace HotelsA.Migrations
+﻿namespace HotelsA.Migrations
 {
+    using HotelsA.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,10 +15,33 @@ namespace HotelsA.Migrations
 
         protected override void Seed(HotelsA.Data.HotelsContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            UserRol usrr = new UserRol
+            {
+                UserType = "Administrator"
+            };
+            context.UserRols.Add(usrr);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            User user = new User
+            {
+                FullName = "Administrator",
+                UserName = "administrator",
+                Password = "admin",
+                UserRolId = 1
+            };
+            context.Users.Add(user);
+
+            BedType bdty1 = new BedType
+            {
+                TypeName = "Cüt"
+            };
+            context.BedTypes.Add(bdty1);
+
+            BedType bdty2 = new BedType
+            {
+                TypeName = "Tək"
+            };
+            context.BedTypes.Add(bdty2);
+            context.SaveChanges();
         }
     }
 }

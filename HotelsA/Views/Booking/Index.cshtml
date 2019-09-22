@@ -27,7 +27,7 @@
                         <th>Çıxış vaxtı</th>
                         <th>Müştəri</th>
                         <th>İstifadəçi</th>
-                        <th>Qiymet</th>
+                        <th>Qiymət</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +53,7 @@
                                 @item.User.FullName
                             </td>
                             <td>@item.Price.ToString("0.00") azn</td>
+                             
                             <td>
                                 @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
                                 <a onclick="return confirm('@item.Room.Number nömrəli otağın bookingini silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
@@ -60,6 +61,7 @@
                             </td>
                         </tr>
                     }
+                
                 </tbody>
             </table>
         </div>

@@ -33,7 +33,9 @@ namespace HotelsA.Controllers
 
             if (ModelState.IsValid)
             {
+                var food = _context.Foods.Find(res.FoodId);
 
+                res.FoodTotalPrice = food.Price * res.FoodCount;
 
                 ViewBag.Menu = _context.Foods.OrderByDescending(r => r.Name).ToList();
                 res.IsDelete = true;
@@ -66,6 +68,11 @@ namespace HotelsA.Controllers
            
             if (ModelState.IsValid)
             {
+                var food = _context.Foods.Find(res.FoodId);
+
+                res.FoodTotalPrice = food.Price * res.FoodCount;
+
+
                 _context.Entry(res).State = System.Data.Entity.EntityState.Modified;
                 res.IsDelete = true;
                 _context.SaveChanges();

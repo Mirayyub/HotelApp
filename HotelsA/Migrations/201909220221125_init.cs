@@ -87,6 +87,7 @@ namespace HotelsA.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         FullName = c.String(nullable: false, maxLength: 30),
                         UserName = c.String(nullable: false, maxLength: 30),
+                        token = c.String(),
                         Password = c.String(nullable: false, maxLength: 60),
                         UserRolId = c.Int(nullable: false),
                     })
@@ -111,6 +112,7 @@ namespace HotelsA.Migrations
                         FoodId = c.Int(nullable: false),
                         FoodCount = c.Int(nullable: false),
                         IsDelete = c.Boolean(),
+                        FoodTotalPrice = c.Decimal(nullable: false, storeType: "money"),
                         RoomId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

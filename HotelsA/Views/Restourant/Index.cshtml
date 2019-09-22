@@ -23,7 +23,6 @@
                 <thead>
                     <tr ><th></th>
                         <th>Otaq</th>
-                       
                         <th>Məhsul</th>
                         <th>Say</th>
                         <th>Ödəniləcək Məbləğ</th>
@@ -47,7 +46,7 @@
                                 <h6>@item.FoodCount</h6>
                             </td>
                             <td>
-                                <h6>@(item.FoodCount * @item.Food.Price) azn</h6>
+                                <h6>@item.FoodTotalPrice.ToString("0.00") azn</h6>
                             </td>
 
                             <td>

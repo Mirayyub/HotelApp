@@ -33,6 +33,7 @@
                     @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "Id", "Price"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
                 </div>
+
                 <div class="form-group ">
                     <div>Müştəri</div>
                     @Html.DropDownListFor(m => m.CustomerId, new SelectList(ViewBag.Customers, "id", "fullname"), new { @class = "form-control" })

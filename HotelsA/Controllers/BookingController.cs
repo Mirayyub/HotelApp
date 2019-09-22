@@ -15,7 +15,8 @@ namespace HotelsA.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-           
+            
+
             var list = _context.Bookings.Include("Room").Include("Customer").Include("User").ToList();
 
             return View(list);
@@ -41,11 +42,16 @@ namespace HotelsA.Controllers
         public ActionResult Create(Booking booking)
         {
            
+
+            
+           
             var room = _context.Rooms.Find(booking.RoomId);
 
             TimeSpan calc = booking.CheckedOut.Subtract(booking.CheckedIn);
 
             booking.Price = calc.Days * room.Price;
+
+
 
             if (ModelState.IsValid)
             {
@@ -74,7 +80,6 @@ namespace HotelsA.Controllers
             {
                 return HttpNotFound();
             }
-
             ViewBag.Rooms = _context.Rooms.OrderBy(r => r.Number).ToList();
             ViewBag.Customers = _context.Customers.OrderBy(c => c.Fullname).ToList();
             ViewBag.Food = _context.Foods.OrderBy(m => m.Name).ToList();
@@ -87,13 +92,13 @@ namespace HotelsA.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(Booking book)
+        public ActionResult Edit(Booking book, RestourantOrder restourant)
         {
+          
             ViewBag.Rooms = _context.Rooms.OrderBy(r => r.Number).ToList();
             ViewBag.Customers = _context.Customers.OrderBy(c => c.Fullname).ToList();
             ViewBag.Food = _context.Foods.OrderBy(f => f.Name).ToList();
             ViewBag.Users = _context.Users.OrderBy(u => u.FullName).ToList();
-
             return View(book);
 
         }

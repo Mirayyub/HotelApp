@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace HotelsA.Controllers
 {
-    
+    [Auth]
     public class HomeController : BaseController
     {
         public ActionResult Index()

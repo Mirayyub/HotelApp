@@ -38,7 +38,9 @@ namespace HotelsA.Models
 
         public User User { get; set; }
 
+        public int? RestourantOrderId { get; set; }
 
+       
         public List<BookingDetail> BookingDetails { get; set; }
 
     }

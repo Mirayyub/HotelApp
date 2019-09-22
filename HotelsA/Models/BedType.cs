@@ -15,7 +15,7 @@ namespace HotelsA.Models
         [MaxLength(500, ErrorMessage = "Yataq növünü maximum 50 xarakter olmalıdır")]
         [MinLength(2, ErrorMessage = "Yataq növünü minumum 2 xarakter olmalıdır")]
         public string TypeName { get; set; }
-
+       
         public List<Room> Rooms { get; set; }
     }
 }

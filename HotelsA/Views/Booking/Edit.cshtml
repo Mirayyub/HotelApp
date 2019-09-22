@@ -34,10 +34,10 @@
                         @Html.TextBoxFor(m => m.CheckedOut, null, new { @class = "max form-control", @min = DateTime.Now.ToString("dd/MM/yyyy"), @max = DateTime.Now.AddMonths(3).ToString("dd-MM-yyyy"), @type = "date" })
                         @Html.ValidationMessageFor(m => m.CheckedOut, "", new { @class = "text-danger" })
                     </div><div class="form-group">
-    <div>Otağın 1 günlük qiyməti</div>
-    @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "Id", "Price"), new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
-</div>
+                       <div>Otağın 1 günlük qiyməti</div>
+                        @Html.DropDownListFor(m => m.RoomId, new SelectList(ViewBag.Rooms, "Id", "Price"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.RoomId, "", new { @class = "text-danger" })
+                      </div>
                     <div class="form-group col-md-6">
                         <div>Müştəri</div>
                         @Html.DropDownListFor(m => m.CustomerId, new SelectList(ViewBag.Customers, "id", "fullname"), new { @class = "form-control" })
