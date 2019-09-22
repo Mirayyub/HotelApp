@@ -46,6 +46,15 @@ namespace HotelsA.Controllers
 
             var room = _context.Rooms.Find(booking.RoomId);
 
+
+            //if (_context.Rooms.Any(r => r.Id == booking.RoomId))
+            //{
+            //    ModelState.AddModelError("Otaq", room.Number + " nömrəli otaq doludur.");
+            //    return View(booking);
+            //}
+
+            room.Status = false;
+
             TimeSpan calc = booking.CheckedOut.Subtract(booking.CheckedIn);
 
             booking.Price = calc.Days * room.Price;
@@ -54,6 +63,7 @@ namespace HotelsA.Controllers
 
             if (ModelState.IsValid)
             {
+              
                 _context.Bookings.Add(booking);
                 _context.SaveChanges();
                 return RedirectToAction("index");
@@ -93,7 +103,12 @@ namespace HotelsA.Controllers
         [HttpPost]
         public ActionResult Edit(Booking book, RestourantOrder restourant)
         {
-          
+            
+
+            var room = _context.Rooms.Find(book.RoomId);
+
+            room.Status = false;
+
             ViewBag.Rooms = _context.Rooms.OrderBy(r => r.Number).ToList();
             ViewBag.Customers = _context.Customers.OrderBy(c => c.Fullname).ToList();
             ViewBag.Food = _context.Foods.OrderBy(f => f.Name).ToList();
@@ -105,12 +120,13 @@ namespace HotelsA.Controllers
         {
             
             Booking booking = _context.Bookings.Find(id);
-
+            var room = _context.Rooms.Find(booking.RoomId);
+            room.Status = true;
             if (booking == null)
             {
                 return HttpNotFound();
             }
-
+            
             _context.Bookings.Remove(booking);
             _context.SaveChanges();
 

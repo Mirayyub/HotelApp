@@ -22,10 +22,11 @@
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Otaq</th>
+                        <th>Otaq nömrəsi</th>
                         <th>Giriş vaxtı</th>
                         <th>Çıxış vaxtı</th>
                         <th>Müştəri</th>
+                        <th>Status</th>
                         <th>İstifadəçi</th>
                         <th>Qiymət</th>
                     </tr>
@@ -34,32 +35,42 @@
                     @{var a = 1;}
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>@(a++)</td>
-                            <td>
-                                @item.Room.Number
+                    <tr>
+                        <td>@(a++)</td>
+                        <td>
+                            @item.Room.Number
+                        </td>
+                        <td>
+                            @item.CheckedIn.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.CheckedOut.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.Customer.Fullname
+                        </td>
+                        <td>
+                            @if (@item.Room.Status == false)
+                            {
+                                <h6 class="sts p-2" style="background-color:red;color:white;">Dolu</h6>
+                            }
+                            else
+                            {
+                                <h6 class="sts p-2" style="background-color:green;color:white;">Boş</h6>
+                            }
                             </td>
-                            <td>
-                                @item.CheckedIn.ToString("dd/MM/yyyy")
-                            </td>
-                            <td>
-                                @item.CheckedOut.ToString("dd/MM/yyyy")
-                            </td>
-                            <td>
-                                @item.Customer.Fullname
-                            </td>
+                        <td>
+                            @item.User.FullName
+                        </td>
+                        <td>@item.Price.ToString("0.00") azn</td>
+                        
 
-                            <td>
-                                @item.User.FullName
-                            </td>
-                            <td>@item.Price.ToString("0.00") azn</td>
-                             
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
-                                <a onclick="return confirm('@item.Room.Number nömrəli otağın bookingini silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-secondary far fa-edit bigger-10" })
+                            <a onclick="return confirm('@item.Room.Number nömrəli otağın bookingini silməyə əminsiniz? ')" href="@Url.Action("delete", new { id=item.Id})" class="far fa-trash-alt btn btn-danger"></a>
 
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
                     }
                 
                 </tbody>

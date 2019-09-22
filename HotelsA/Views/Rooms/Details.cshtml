@@ -30,7 +30,7 @@
                                                   <div><b>Çarpayı növü:</b> @Model.BedType.TypeName</div>
                                                   <div><b>Otaq haqqında</b> @Model.Desc</div>
                                                   <div><b>Günlük qiyməti</b> @Model.Price.ToString("0.00") AZN</div></p>
-                       @if (Model.IsDeleted == false) { <a class="btn btn-success btn-lg" href="@Url.Action("create","booking")" role="button">Book Now</a>} 
+                       @if (Model.Status == true) { <a class="btn btn-success btn-lg" href="@Url.Action("create","booking")" role="button">Book Now</a>} 
                         </div>
                     </div>
                 </div>
